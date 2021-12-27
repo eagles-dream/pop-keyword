@@ -7,7 +7,7 @@ export default function Home({items}) {
   const word = wordArray.map((a)=>{return a.elements[0].elements[0].text})
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container}>실시간 검색어
       <div className={styles.order}>
         <div className={styles.left}>
         {
