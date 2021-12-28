@@ -10,8 +10,8 @@ const Keyword = ({word}) => {
           word.slice(0, 5).map((item, i)=>{
             const url = `https://m.search.naver.com/search.naver?where=m_news&query=${item}`
             return (
-              <div className={styles.keyword}>
-                <a href={url} target="_blank" rel="noreferrer" key={i}>
+              <div className={styles.keyword} key={i}>
+                <a href={url} target="_blank" rel="noreferrer">
                   <div className={styles.list}>
                     <span className={styles.number}>{i+1}</span>
                     <span className={styles.word}>{item}</span>
@@ -27,8 +27,8 @@ const Keyword = ({word}) => {
           word.slice(5, 10).map((item, i)=>{
             const url = `https://m.search.naver.com/search.naver?where=m_news&query=${item}`
             return (
-              <div className={styles.keyword}>
-                <a href={url} target="_blank" rel="noreferrer" key={i}>
+              <div className={styles.keyword} key={i}>
+                <a href={url} target="_blank" rel="noreferrer">
                   <div className={styles.list}>
                     <span className={styles.number}>{i+6}</span>
                     <span className={styles.word}>{item}</span>
