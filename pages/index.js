@@ -1,49 +1,19 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import axios from 'axios';
+import Keyword from '../components/keyword';
+import Banner from '../components/banner';
+import Footer from '../components/footer'
 
 export default function Home({items}) {
   const wordArray = items.elements[0].elements[0].elements.slice(4,24)
   const word = wordArray.map((a)=>{return a.elements[0].elements[0].text})
 
   return (
-    <div className={styles.container}>실시간 검색어
-      <div className={styles.order}>
-        <div className={styles.left}>
-        {
-          word.slice(0, 5).map((item, i)=>{
-            const url = `https://m.search.naver.com/search.naver?where=m_news&query=${item}`
-            return (
-              <div className={styles.keyword} key={i}>
-                <a href={url} target="_blank" rel="noreferrer">
-                  <div className={styles.list}>
-                    <span className={styles.number}>{i+1}</span>
-                    <span className={styles.word}>{item}</span>
-                  </div>
-                </a>
-              </div>
-            )
-          })
-        }
-        </div>
-        <div className={styles.right}>
-        {
-          word.slice(5, 10).map((item, i)=>{
-            const url = `https://m.search.naver.com/search.naver?where=m_news&query=${item}`
-            return (
-              <div className={styles.keyword} key={i}>
-                <a href={url} target="_blank" rel="noreferrer" >
-                  <div className={styles.list}>
-                    <span className={styles.number}>{i+6}</span>
-                    <span className={styles.word}>{item}</span>
-                  </div>
-                </a>
-              </div>
-            )
-          })
-        }
-        </div>
-      </div>
+    <div className={styles.container}>
+      <Banner />
+      <Keyword word={word} />
+      <Footer />
     </div>
   )
 }
