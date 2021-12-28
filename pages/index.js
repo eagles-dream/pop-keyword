@@ -11,6 +11,15 @@ export default function Home({items}) {
 
   return (
     <div className={styles.container}>
+      <Head>
+        <title>인기 검색어</title>
+        <meta 
+          name="description" 
+          content="네이버와 연결해 실시간 검색어 순위 및 인기뉴스 등 실시간 트렌드를 확인할 수 있는 서비스입니다." />
+        <meta 
+          name="keywords" 
+          content="실시간검색어, 키워드트렌드, 실시간트렌드, 마케팅, 키워드, 검색어순위, 인기뉴스" />
+      </Head>
       <Banner />
       <Keyword word={word} />
       <Footer />
@@ -19,13 +28,10 @@ export default function Home({items}) {
 }
 
 export async function getStaticProps() {
-  // Fetch data from external API
   const res = await axios('https://trends.google.co.kr/trends/trendingsearches/daily/rss?geo=KR')
   const data = await res.data;
   const convert = require("xml-js");
   const items = JSON.parse(convert.xml2json(data));
-  // Assume xmlText contains the example XML
 
-  // Pass data to the page via props
   return { props: { items }, revalidate: 1, }
 }
