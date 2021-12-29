@@ -24,6 +24,7 @@
 .left,
 .right {
   width: 50%;
+  padding-right: 1em;
 }
 
 .keyword {
@@ -82,5 +83,6 @@
   .left,
   .right {
     width: 100%;
+    padding-right: 0;
   }
 }
