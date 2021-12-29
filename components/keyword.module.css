@@ -27,7 +27,7 @@
 }
 
 .keyword {
-  padding: 0.2em 0.5em;
+  padding: 0.2em 0;
   font-size: var(--second-font-size);
 }
 
@@ -52,7 +52,7 @@
 }
 
 .number {
-  width: 1.5em;
+  width: 1.2em;
   color: var(--secondary-text-color);
   font-weight: 500;
   justify-content: end;

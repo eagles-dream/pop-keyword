@@ -2,9 +2,9 @@ import styles from './keyword.module.css'
 
 const Keyword = ({word, traffic}) => {
   const num = traffic.map((a)=>{return a.replace("+","")})
-  console.log(num)
+  //console.log(num)
   const traffic1 = num.map((a)=>{return parseInt(a)})
-  console.log(traffic1)
+  //console.log(traffic1)
 
   return (  
     <div className={styles.container}>
