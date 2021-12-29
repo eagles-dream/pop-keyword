@@ -9,10 +9,11 @@ import { useEffect, useState } from 'react';
 
 export default function Home({items}) {
   const [wordArray, setWordArray] = useState([])
-  console.log(wordArray)
+  //console.log(wordArray)
 
   //const wordArray = items.elements[0].elements[0].elements.slice(4,24)
   const word = wordArray.map((a)=>{return a.elements[0].elements[0].text})
+  const traffic = wordArray.map((a)=>{return a.elements[1].elements[0].text})
   const imgUrl = wordArray.map((a)=>{return a.elements[5].elements[0].text})
   const newsTitle = wordArray.map((a)=>{return a.elements[7].elements[0].elements[0].text})
   const newsUrl = wordArray.map((a)=>{return a.elements[7].elements[2].elements[0].text})
@@ -33,7 +34,7 @@ export default function Home({items}) {
           content="실시간검색어, 키워드트렌드, 실시간트렌드, 마케팅, 키워드, 검색어순위, 인기뉴스" />
       </Head>
       <Banner />
-      <Keyword word={word} />
+      <Keyword word={word} traffic={traffic} />
       <News imgUrl={imgUrl} newsTitle={newsTitle} newsUrl={newsUrl}  />
       <Footer />
     </div>
