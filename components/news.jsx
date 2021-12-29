@@ -2,7 +2,7 @@ import styles from './news.module.css'
 import Banner from './banner'
 
 const News = ({imgUrl, newsTitle, newsUrl}) => {
-  console.log(newsTitle)
+  //console.log(newsTitle)
   return (  
     <div className={styles.container}>
       <div className={styles.title}>인기뉴스</div>

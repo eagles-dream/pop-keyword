@@ -5,13 +5,21 @@ import Keyword from '../components/keyword';
 import Banner from '../components/banner';
 import Footer from '../components/footer'
 import News from '../components/news';
+import { useEffect, useState } from 'react';
 
 export default function Home({items}) {
-  const wordArray = items.elements[0].elements[0].elements.slice(4,24)
+  const [wordArray, setWordArray] = useState([])
+  console.log(wordArray)
+
+  //const wordArray = items.elements[0].elements[0].elements.slice(4,24)
   const word = wordArray.map((a)=>{return a.elements[0].elements[0].text})
   const imgUrl = wordArray.map((a)=>{return a.elements[5].elements[0].text})
   const newsTitle = wordArray.map((a)=>{return a.elements[7].elements[0].elements[0].text})
   const newsUrl = wordArray.map((a)=>{return a.elements[7].elements[2].elements[0].text})
+
+  useEffect(()=>{
+    setWordArray(items.elements[0].elements[0].elements.slice(4,24));
+  }, [])
 
   return (
     <div className={styles.container}>
