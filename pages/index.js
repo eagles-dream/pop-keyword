@@ -20,18 +20,19 @@ export default function Home({items}) {
           name="keywords" 
           content="실시간검색어, 키워드트렌드, 실시간트렌드, 마케팅, 키워드, 검색어순위, 인기뉴스" />
       </Head>
-      <Banner />
+      <Banner />배너
       <Keyword word={word} />
       <Footer />
     </div>
   )
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const res = await axios('https://trends.google.co.kr/trends/trendingsearches/daily/rss?geo=KR')
   const data = await res.data;
   const convert = require("xml-js");
   const items = JSON.parse(convert.xml2json(data));
 
-  return { props: { items }, revalidate: 1, }
+  //return { props: { items }, revalidate: 1, }
+  return { props: { items } }
 }
