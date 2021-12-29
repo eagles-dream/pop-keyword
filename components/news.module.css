@@ -19,6 +19,7 @@
 .news {
   display: flex;
   padding: 0.5em;
+  padding-left: 0;
   border-bottom: 1px solid rgb(236, 236, 236);
 }
 
@@ -30,6 +31,7 @@
   display: flex;
   flex-direction: column;
   padding: 0.5em;
+  padding-top: 0.2em;
 }
 
 .number {
