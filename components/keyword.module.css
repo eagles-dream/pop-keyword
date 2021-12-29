@@ -5,7 +5,7 @@
   margin-bottom: 0.5em;
   padding: 1em;
   background-color: var(--main-text-color);
-  border-radius: 0 0 8px 8px;
+  border-radius: 8px 8px;
 }
 
 .title {

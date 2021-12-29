@@ -16,7 +16,7 @@ a {
 }
 
 :root {
-  --main-color: #37474f;
+  --main-color: rgb(236, 236, 236);
   --main-dark-color: #102027;
   --main-light-color: #62727b;
   --main-text-color: #ffffff;
