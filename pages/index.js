@@ -4,10 +4,14 @@ import axios from 'axios';
 import Keyword from '../components/keyword';
 import Banner from '../components/banner';
 import Footer from '../components/footer'
+import News from '../components/news';
 
 export default function Home({items}) {
   const wordArray = items.elements[0].elements[0].elements.slice(4,24)
   const word = wordArray.map((a)=>{return a.elements[0].elements[0].text})
+  const imgUrl = wordArray.map((a)=>{return a.elements[5].elements[0].text})
+  const newsTitle = wordArray.map((a)=>{return a.elements[7].elements[0].elements[0].text})
+  const newsUrl = wordArray.map((a)=>{return a.elements[7].elements[2].elements[0].text})
 
   return (
     <div className={styles.container}>
@@ -20,12 +24,22 @@ export default function Home({items}) {
           name="keywords" 
           content="실시간검색어, 키워드트렌드, 실시간트렌드, 마케팅, 키워드, 검색어순위, 인기뉴스" />
       </Head>
-      <Banner />배너
+      <Banner />
       <Keyword word={word} />
+      <News imgUrl={imgUrl} newsTitle={newsTitle} newsUrl={newsUrl}  />
       <Footer />
     </div>
   )
 }
+
+/* export async function getStaticProps() {
+  const res = await axios('https://trends.google.co.kr/trends/trendingsearches/daily/rss?geo=KR')
+  const data = await res.data;
+  const convert = require("xml-js");
+  const items = JSON.parse(convert.xml2json(data));
+
+  return { props: { items }, revalidate: 1, }
+} */
 
 export async function getServerSideProps() {
   const res = await axios('https://trends.google.co.kr/trends/trendingsearches/daily/rss?geo=KR')
@@ -33,6 +47,5 @@ export async function getServerSideProps() {
   const convert = require("xml-js");
   const items = JSON.parse(convert.xml2json(data));
 
-  //return { props: { items }, revalidate: 1, }
   return { props: { items } }
 }
