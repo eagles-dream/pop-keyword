@@ -1,18 +1,17 @@
-import styles from './keyword.module.css'
+import styles from './keyword1.module.css'
 
-const Keyword = ({word, traffic}) => {
-  const num = traffic.map((a)=>{return a.replace("+","")})
+const Keyword1 = ({word1, traffic1}) => {
+  const num = traffic1.map((a)=>{return a.replace("+","")})
   //console.log(num)
-  const traffic1 = num.map((a)=>{return parseInt(a)})
+  const traffic = num.map((a)=>{return parseInt(a)})
   //console.log(traffic1)
 
   return (  
     <div className={styles.container}>
-      <div className={styles.title}>실시간 검색어</div>
       <div className={styles.order}>
         <div className={styles.left}>
         {
-          word.slice(0, 5).map((item, i)=>{
+          word1.slice(0, 5).map((item, i)=>{
             const url = `https://m.search.naver.com/search.naver?where=m_news&query=${item}`
             return (
               <div className={styles.keyword} key={i}>
@@ -23,7 +22,7 @@ const Keyword = ({word, traffic}) => {
                       <span className={styles.word}>{item}</span>
                     </div>
                     <div className={styles.traffic}>
-                      <span>{traffic1[i]}천+ 검색</span>
+                      <span>{traffic[i]}천+ 검색</span>
                     </div>
                   </div>
                 </a>
@@ -34,7 +33,7 @@ const Keyword = ({word, traffic}) => {
         </div>
         <div className={styles.right}>
         {
-          word.slice(5, 10).map((item, i)=>{
+          word1.slice(5, 10).map((item, i)=>{
             const url = `https://m.search.naver.com/search.naver?where=m_news&query=${item}`
             return (
               <div className={styles.keyword} key={i}>
@@ -45,7 +44,7 @@ const Keyword = ({word, traffic}) => {
                       <span className={styles.word}>{item}</span>
                     </div>
                     <div className={styles.traffic}>
-                      <span>{traffic1[i]}천+ 검색</span>
+                      <span>{traffic[i]}천+ 검색</span>
                     </div>
                   </div>
                 </a>
@@ -59,4 +58,4 @@ const Keyword = ({word, traffic}) => {
   );
 }
  
-export default Keyword;
+export default Keyword1;

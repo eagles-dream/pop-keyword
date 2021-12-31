@@ -4,8 +4,9 @@
   width: 60%;
   margin-bottom: 0.5em;
   padding: 1em;
+  padding-top: 0;
   background-color: var(--main-text-color);
-  border-radius: 8px 8px;
+  border-radius: 0 0 8px 8px;
 }
 
 .title {

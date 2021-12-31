@@ -42,6 +42,7 @@
 
 .text {
   padding-top: 0.5em;
+  color: var(--main-dark-color);
 }
 
 @media screen and (max-width: 768px) {

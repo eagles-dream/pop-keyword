@@ -1,0 +1,29 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em;
+  padding-bottom: 0;
+  background-color: var(--main-text-color);
+  border-radius: 8px 8px 0 0;
+  width: 60%;
+}
+
+.title {
+  padding-top: 0.2em;
+  font-size: var(--first-font-size);
+  font-weight: 700;
+  color: var(--secondary-text-color);
+}
+
+.time {
+  color: var(--green-dark-color);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    width: 100%;
+  }
+}

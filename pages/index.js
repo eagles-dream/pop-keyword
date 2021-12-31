@@ -1,25 +1,49 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import axios from 'axios';
-import Keyword from '../components/keyword';
+import Tabs from '../components/tabs';
+import Keyword1 from '../components/keyword1';
+import Keyword2 from '../components/keyword2';
 import Banner from '../components/banner';
 import Footer from '../components/footer'
 import News from '../components/news';
+import Title from '../components/title'
 import { useEffect, useState } from 'react';
 
-export default function Home({items}) {
-  const [wordArray, setWordArray] = useState([])
-  //console.log(wordArray)
+export default function Home({items, data}) {
+  const [wordArray1, setWordArray1] = useState([])
+  const [wordArray2, setWordArray2] = useState([])
+  const [time, setTime] = useState()
+  const [tab, setTab] = useState(true)
+  //console.log(wordArray1)
 
-  //const wordArray = items.elements[0].elements[0].elements.slice(4,24)
-  const word = wordArray.map((a)=>{return a.elements[0].elements[0].text})
-  const traffic = wordArray.map((a)=>{return a.elements[1].elements[0].text})
-  const imgUrl = wordArray.map((a)=>{return a.elements[5].elements[0].text})
-  const newsTitle = wordArray.map((a)=>{return a.elements[7].elements[0].elements[0].text})
-  const newsUrl = wordArray.map((a)=>{return a.elements[7].elements[2].elements[0].text})
+  const Tab1 = () => { setTab(true) }
+  const Tab2 = () => { setTab(false) }
+
+  const word1 = wordArray1 && wordArray1.map((a)=>{return a.elements[0].elements[0].text})
+  //console.log(word1)
+  const word2 = wordArray2 && wordArray2.map((a)=>{return a.keyword})
+  //console.log(word2)
+  const traffic1 = wordArray1 && wordArray1.map((a)=>{return a.elements[1].elements[0].text})
+  const traffic2 = wordArray2 && wordArray2.map((a)=>{return a.directionClass})
+  //console.log(traffic2)
+  const imgUrl = wordArray1 && wordArray1.map((a)=>{return a.elements[5].elements[0].text})
+  //console.log(imgUrl)
+  const newsTitle = wordArray1 && wordArray1.map((a)=>{return a.elements[7].elements[0].elements[0].text})
+  //console.log(newsTitle)
+  const newsUrl = wordArray1 && wordArray1.map((a)=>{return a.elements[7].elements[2].elements[0].text})
+  //console.log(newsUrl)
 
   useEffect(()=>{
-    setWordArray(items.elements[0].elements[0].elements.slice(4,24));
+    setWordArray1(items.elements[0].elements[0].elements.slice(4,24));
+  }, [])
+
+  useEffect(()=>{
+    setWordArray2(data.issue.slice(0,20));
+  }, [])
+
+  useEffect(()=>{
+    setTime(data.issueTime);
   }, [])
 
   return (
@@ -34,7 +58,13 @@ export default function Home({items}) {
           content="실시간검색어, 키워드트렌드, 실시간트렌드, 마케팅, 키워드, 검색어순위, 인기뉴스" />
       </Head>
       <Banner />
-      <Keyword word={word} traffic={traffic} />
+      <Title time={time} />
+      <Tabs tab={tab} Tab1={Tab1} Tab2={Tab2} />
+      {
+        tab
+        ?<Keyword2 time={time} word2={word2} traffic2={traffic2} />
+        :<Keyword1 time={time} word1={word1} traffic1={traffic1} />
+      }
       <News imgUrl={imgUrl} newsTitle={newsTitle} newsUrl={newsUrl}  />
       <Footer />
     </div>
@@ -50,11 +80,32 @@ export default function Home({items}) {
   return { props: { items }, revalidate: 1, }
 } */
 
-export async function getServerSideProps() {
+/* export async function getServerSideProps() {
   const res = await axios('https://trends.google.co.kr/trends/trendingsearches/daily/rss?geo=KR')
   const data = await res.data;
   const convert = require("xml-js");
   const items = JSON.parse(convert.xml2json(data));
 
   return { props: { items } }
+} */
+
+/* export async function getStaticProps() {
+  const res = await axios('https://search.zum.com/issue.zum')
+  const data = await res.data;
+
+  return { props: { data } }
+} */
+
+
+export async function getServerSideProps() {  
+  const [itemsRes, dataRes] = await Promise.all([
+    axios('https://trends.google.co.kr/trends/trendingsearches/daily/rss?geo=KR'), 
+    axios('https://search.zum.com/issue.zum')
+  ])  
+  const [items, data] = await Promise.all([  
+    JSON.parse(require("xml-js").xml2json(itemsRes.data)),
+    dataRes.data
+  ])
+
+  return { props: { items, data } };
 }
