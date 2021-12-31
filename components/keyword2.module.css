@@ -54,7 +54,7 @@
 }
 
 .number {
-  width: 1.2em;
+  width: 1.5em;
   color: var(--secondary-text-color);
   font-weight: 500;
   justify-content: end;
