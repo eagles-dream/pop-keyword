@@ -8,7 +8,7 @@ const Youtube = ({youtubeArr}) => {
 
   return (  
     <div className={styles.container}>
-      <div className={styles.title}>인기 Youtube 동영상</div>      
+      <div className={styles.title}>인기 Youtube</div>      
       { videoId && <Video videoId={videoId} /> }
       {
         youtubeArr.map((a, i)=>{
