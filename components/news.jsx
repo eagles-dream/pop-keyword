@@ -20,7 +20,6 @@ const News = ({imgUrl, newsTitle, newsUrl}) => {
             </a>
         )})
       }
-      <Banner />
       {
         imgUrl.slice(5, 10).map((item, i)=>{ 
           return (
@@ -35,7 +34,7 @@ const News = ({imgUrl, newsTitle, newsUrl}) => {
             </a>
         )})
       }
-      <Banner />
+      {/* <Banner />
       {
         imgUrl.slice(10, 15).map((item, i)=>{ 
           return (
@@ -64,7 +63,7 @@ const News = ({imgUrl, newsTitle, newsUrl}) => {
               </div>
             </a>
         )})
-      }
+      } */}
     </div>
   );
 }
