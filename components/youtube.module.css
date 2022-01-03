@@ -45,7 +45,7 @@
   padding-top: 0.2em;
   color: var(--main-dark-color);
   overflow: hidden;
-  font-size: 0.96rem;
+  font-size: 0.98rem;
 }
 
 @media screen and (max-width: 768px) {
