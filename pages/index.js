@@ -107,7 +107,7 @@ export default function Home({items, data, youtube}) {
   return { props: { data } }
 } */
 
-export async function getStaticProps() {
+/* export async function getStaticProps() {
   const [itemsRes, dataRes, youtubeRes] = await Promise.all([
     axios('https://trends.google.co.kr/trends/trendingsearches/daily/rss?geo=KR'), 
     axios('https://search.zum.com/issue.zum'),
@@ -120,9 +120,9 @@ export async function getStaticProps() {
   ])
 
   return { props: { items, data, youtube }, revalidate: 1, }
-}
+} */
 
-/* export async function getServerSideProps() {  
+export async function getServerSideProps() {  
   const [itemsRes, dataRes, youtubeRes] = await Promise.all([
     axios('https://trends.google.co.kr/trends/trendingsearches/daily/rss?geo=KR'), 
     axios('https://search.zum.com/issue.zum'),
@@ -135,4 +135,4 @@ export async function getStaticProps() {
   ])
 
   return { props: { items, data, youtube } };
-} */
+}
