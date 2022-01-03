@@ -107,20 +107,22 @@ export default function Home({items, data, youtube}) {
   return { props: { data } }
 } */
 
-/* export async function getStaticProps() {
-  const [itemsRes, dataRes] = await Promise.all([
+export async function getStaticProps() {
+  const [itemsRes, dataRes, youtubeRes] = await Promise.all([
     axios('https://trends.google.co.kr/trends/trendingsearches/daily/rss?geo=KR'), 
-    axios('https://search.zum.com/issue.zum')
+    axios('https://search.zum.com/issue.zum'),
+    axios(`https://youtube.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&maxResults=10&regionCode=KR&key=${process.env.API_KEY}`)
   ])  
-  const [items, data] = await Promise.all([  
+  const [items, data, youtube] = await Promise.all([  
     JSON.parse(require("xml-js").xml2json(itemsRes.data)),
-    dataRes.data
+    dataRes.data,
+    youtubeRes.data
   ])
 
-  return { props: { items, data }, revalidate: 10, }
-} */
+  return { props: { items, data, youtube }, revalidate: 10, }
+}
 
-export async function getServerSideProps() {  
+/* export async function getServerSideProps() {  
   const [itemsRes, dataRes, youtubeRes] = await Promise.all([
     axios('https://trends.google.co.kr/trends/trendingsearches/daily/rss?geo=KR'), 
     axios('https://search.zum.com/issue.zum'),
@@ -133,4 +135,4 @@ export async function getServerSideProps() {
   ])
 
   return { props: { items, data, youtube } };
-}
+} */
