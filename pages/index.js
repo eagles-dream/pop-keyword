@@ -119,7 +119,7 @@ export async function getStaticProps() {
     youtubeRes.data
   ])
 
-  return { props: { items, data, youtube }, revalidate: 10, }
+  return { props: { items, data, youtube }, revalidate: 1, }
 }
 
 /* export async function getServerSideProps() {  
