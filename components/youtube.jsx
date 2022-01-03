@@ -12,7 +12,7 @@ const Youtube = ({youtubeArr}) => {
 
   return (  
     <div className={styles.container}>
-      <div className={styles.title}>인기 Youtube</div>      
+      <div className={styles.title}>인기 YouTube</div>      
       <div ref={playerRef}>{ videoId && <Video videoId={videoId} /> }</div>
       {
         youtubeArr.map((a, i)=>{
