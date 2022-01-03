@@ -3,13 +3,14 @@
   flex-direction: column;
   width: 60%;
   margin-bottom: 0.5em;
-  padding: 1em;
+  padding: 1em 0;
   background-color: var(--main-text-color);
   border-radius: 8px 8px;
 }
 
 .title {
   padding-top: 0.2em;
+  padding-left: 1em;
   padding-bottom: 1em;
   font-size: var(--first-font-size);
   font-weight: 700;
@@ -19,7 +20,6 @@
 .news {
   display: flex;
   padding: 0.5em;
-  padding-left: 0;
   border-bottom: 1px solid rgb(236, 236, 236);
 }
 

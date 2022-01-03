@@ -3,7 +3,7 @@
   flex-direction: column;
   width: 60%;
   margin-bottom: 0.5em;
-  padding: 1em;
+  padding: 1em 0;
   background-color: var(--main-text-color);
   border-radius: 8px;
 }
@@ -11,6 +11,7 @@
 .title {
   padding-top: 0.2em;
   padding-bottom: 1em;
+  padding-left: 1em;
   font-size: var(--first-font-size);
   font-weight: 700;
   color: var(--secondary-text-color);
@@ -19,7 +20,6 @@
 .card {
   display: flex;
   padding: 0.5em;
-  padding-left: 0;
   border-bottom: 1px solid rgb(236, 236, 236);
   cursor: pointer;
 }
@@ -45,7 +45,7 @@
   padding-top: 0.2em;
   color: var(--main-dark-color);
   overflow: hidden;
-  font-size: 0.95rem;
+  font-size: 0.96rem;
 }
 
 @media screen and (max-width: 768px) {
