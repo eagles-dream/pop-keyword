@@ -1,0 +1,95 @@
+.container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background-color: var(--main-text-color);
+  position: sticky;
+  top: 0;
+}
+
+.logo,
+.guide {
+  width: 20%;
+  text-align: center;
+}
+
+.naver_search,
+.google_search {
+  display: flex;
+  width: 60%;
+  height: 40px;
+}
+
+.naver_title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  border: 2px solid var(--green-dark-color);
+  background-color: var(--green-dark-color);
+  color: var(--main-text-color);
+  font-size: 1.7rem;
+  font-weight: 900;
+  padding-bottom: 0.1em;
+}
+
+.google_title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  border: 2px solid lightgray;
+  background-color: lightgray;
+  color: var(--main-text-color);
+  font-size: 1.7rem;
+  font-weight: 500;
+  padding-bottom: 0.1em;
+}
+
+.naver {
+  width: 100%;
+  border: 2px solid var(--green-dark-color);
+}
+
+.google {
+  width: 100%;
+  border: 2px solid lightgray;
+}
+
+.naver_button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  border: 2px solid var(--green-dark-color);
+  background-color: var(--green-dark-color);
+  color: var(--main-text-color);
+  font-size: 1.3em;
+}
+
+.google_button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  border: 2px solid lightgray;
+  background-color: lightgray;
+  color: var(--main-text-color);
+  font-size: 1.3em;
+}
+
+@media screen and (max-width: 1200px) {
+  .container {
+    width: 100%;
+  }
+
+  .logo,
+  .guide {
+    display: none;
+  }
+
+  .naver_search,
+  .google_search {
+    width: 100%;
+  }
+}

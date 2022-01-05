@@ -4,16 +4,17 @@ import axios from 'axios';
 import Tabs from '../components/tabs';
 import Keyword1 from '../components/keyword1';
 import Keyword2 from '../components/keyword2';
-import Youtube from '../components/youtube';
+//import Youtube from '../components/youtube';
 import Footer from '../components/footer'
 import News from '../components/news';
 import Title from '../components/title'
 import { useEffect, useState } from 'react';
+import Search from '../components/search';
 
 export default function Home({items, data, youtube}) {
   const [wordArray1, setWordArray1] = useState([])
   const [wordArray2, setWordArray2] = useState([])
-  const [youtubeArr, setYoutubeArr] = useState([])
+  //const [youtubeArr, setYoutubeArr] = useState([])
   const [time, setTime] = useState()
   const [tab, setTab] = useState(true)
   //console.log(wordArray1)
@@ -57,9 +58,9 @@ export default function Home({items, data, youtube}) {
     setWordArray2(data.issue.slice(0,20));
   }, [])
 
-  useEffect(()=>{
+  /* useEffect(()=>{
     setYoutubeArr(youtube.items);
-  }, [])
+  }, []) */
 
   useEffect(()=>{
     setTime(data.issueTime);
@@ -76,6 +77,7 @@ export default function Home({items, data, youtube}) {
           name="keywords" 
           content="실시간검색어, 키워드트렌드, 실시간트렌드, 마케팅, 키워드, 검색어순위, 인기뉴스" />
       </Head>
+      <Search tab={tab} />
       <Title time={time} />
       <Tabs tab={tab} Tab1={Tab1} Tab2={Tab2} />
       {
@@ -83,7 +85,7 @@ export default function Home({items, data, youtube}) {
         ?<Keyword2 time={time} word2={word2} traffic2={traffic2} />
         :<Keyword1 time={time} word1={word1} traffic1={traffic1} />
       }
-      <Youtube youtubeArr={youtubeArr} />
+      {/* <Youtube youtubeArr={youtubeArr} /> */}
       <News imgUrl={imgUrl} newsTitle={newsTitle} newsUrl={newsUrl}  />
       <Footer />
     </div>

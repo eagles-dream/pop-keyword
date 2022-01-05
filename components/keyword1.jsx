@@ -12,7 +12,7 @@ const Keyword1 = ({word1, traffic1}) => {
         <div className={styles.left}>
         {
           word1.slice(0, 5).map((item, i)=>{
-            const url = `https://m.search.naver.com/search.naver?where=m_news&query=${item}`
+            const url = `https://www.google.com/search?q=${item}`
             return (
               <div className={styles.keyword} key={i}>
                 <a href={url} target="_blank" rel="noreferrer">
@@ -34,7 +34,7 @@ const Keyword1 = ({word1, traffic1}) => {
         <div className={styles.right}>
         {
           word1.slice(5, 10).map((item, i)=>{
-            const url = `https://m.search.naver.com/search.naver?where=m_news&query=${item}`
+            const url = `https://www.google.com/search?q=${item}`
             return (
               <div className={styles.keyword} key={i}>
                 <a href={url} target="_blank" rel="noreferrer">

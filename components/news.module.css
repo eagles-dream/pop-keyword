@@ -17,6 +17,16 @@
   color: var(--secondary-text-color);
 }
 
+.list {
+  display: flex;
+}
+
+.left,
+.right {
+  width: 50%;
+  padding-right: 1em;
+}
+
 .news {
   display: flex;
   padding: 0.5em;
@@ -45,8 +55,19 @@
   color: var(--main-dark-color);
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1200px) {
   .container {
     width: 100%;
+  }
+
+  .list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .left,
+  .right {
+    width: 100%;
+    padding-right: 1em;
   }
 }
