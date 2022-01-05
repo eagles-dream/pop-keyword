@@ -24,7 +24,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 50px;
+  width: 60px;
   border: 2px solid var(--green-dark-color);
   background-color: var(--green-dark-color);
   color: var(--main-text-color);
@@ -37,7 +37,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 50px;
+  width: 60px;
   border: 2px solid lightgray;
   background-color: lightgray;
   color: var(--main-text-color);
@@ -49,28 +49,31 @@
 .naver {
   width: 100%;
   border: 2px solid var(--green-dark-color);
-  font-size: 1.2em;
+  font-size: 1em;
   background-color: var(--main-text-color);
-}
-
-.naver:focus,
-.google:focus {
-  outline: none;
-  font-size: 1.2em;
-  background-color: var(--main-text-color);
+  padding-left: 1em;
 }
 
 .google {
   width: 100%;
   border: 2px solid lightgray;
-  font-size: 1.2em;
+  font-size: 1em;
+  background-color: var(--main-text-color);
+  padding-left: 1em;
+}
+
+.naver:focus,
+.google:focus {
+  outline: none;
+  font-size: 1em;
+  background-color: var(--main-text-color);
 }
 
 .naver_button {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 60px;
+  width: 70px;
   border: 2px solid var(--green-dark-color);
   background-color: var(--green-dark-color);
   color: var(--main-text-color);
@@ -81,7 +84,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 60px;
+  width: 70px;
   border: 2px solid lightgray;
   background-color: lightgray;
   color: var(--main-text-color);
@@ -101,5 +104,23 @@
   .naver_search,
   .google_search {
     width: 100%;
+    height: 45px;
+  }
+
+  .naver_title,
+  .google_title {
+    display: none;
+  }
+
+  .google {
+    border-radius: 36px;
+  }
+
+  .naver_button,
+  .google_button {
+    border: 2px solid var(--main-text-color);
+    background-color: var(--main-text-color);
+    color: gray;
+    font-size: 1.3em;
   }
 }
