@@ -72,10 +72,10 @@ export default function Home({items, data, youtube}) {
         <title>인기 검색어</title>
         <meta 
           name="description" 
-          content="네이버와 연결해 실시간 검색어 순위 및 인기뉴스 등 실시간 트렌드를 확인할 수 있는 서비스입니다." />
+          content="네이버, 구글과 연결해 실시간 검색어 순위 및 인기뉴스 등 실시간 트렌드를 확인할 수 있는 서비스입니다." />
         <meta 
           name="keywords" 
-          content="실시간검색어, 키워드트렌드, 실시간트렌드, 마케팅, 키워드, 검색어순위, 인기뉴스" />
+          content="실시간검색어, 실검, 네이버검색어, 구글검색어, 구글트랜드, 인기검색어, 키워드트렌드, 실시간트렌드, 마케팅, 키워드, 검색어순위, 인기뉴스" />
       </Head>
       <Search tab={tab} />
       <Title time={time} />

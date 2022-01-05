@@ -5,8 +5,7 @@
   background-color: var(--main-text-color);
   position: sticky;
   top: 0;
-  padding-left: 0.1em;
-  padding-right: 0.1em;
+  padding: 0 0.1em;
 }
 
 .logo,
@@ -52,6 +51,7 @@
   width: 100%;
   border: 2px solid var(--green-dark-color);
   font-size: 1em;
+  font-weight: 700;
   background-color: var(--main-text-color);
   padding-left: 1em;
 }
@@ -62,6 +62,11 @@
   font-size: 1em;
   background-color: var(--main-text-color);
   padding-left: 1em;
+}
+
+.naver::placeholder,
+.google::placeholder {
+  color: lightgray;
 }
 
 .naver:focus,
@@ -111,15 +116,31 @@
 
   .naver_title,
   .google_title {
-    display: none;
+    width: 30px;
+    border: none;
+    background-color: var(--main-text-color);
+    color: var(--green-dark-color);
+    font-size: 1.7rem;
+    font-weight: 900;
+    padding-bottom: 0.1em;
+    position: absolute;
+    left: 0.45em;
+    top: 0.17em;
+  }
+
+  .google_title {
+    color: gray;
+    font-weight: 700;
   }
 
   .naver {
     border-radius: 4px;
+    padding-left: 3em;
   }
 
   .google {
     border-radius: 36px;
+    padding-left: 3em;
   }
 
   .naver_button,
@@ -131,7 +152,7 @@
     font-size: 1.5em;
     position: absolute;
     right: 0.7em;
-    top: 0.4em;
+    top: 0.45em;
   }
 
   .naver_button {
