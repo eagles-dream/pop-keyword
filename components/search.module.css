@@ -5,6 +5,7 @@
   background-color: var(--main-text-color);
   position: sticky;
   top: 0;
+  padding-left: 0.1em;
 }
 
 .logo,
