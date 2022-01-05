@@ -112,6 +112,10 @@
     display: none;
   }
 
+  .naver {
+    border-radius: 4px;
+  }
+
   .google {
     border-radius: 36px;
   }
@@ -121,6 +125,10 @@
     border: 2px solid var(--main-text-color);
     background-color: var(--main-text-color);
     color: gray;
-    font-size: 1.3em;
+    font-size: 1.5em;
+  }
+
+  .naver_button {
+    color: var(--green-dark-color);
   }
 }
