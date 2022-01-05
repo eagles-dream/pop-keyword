@@ -117,6 +117,7 @@
   .naver_title,
   .google_title {
     width: 30px;
+    height: 30px;
     border: none;
     background-color: var(--main-text-color);
     color: var(--green-dark-color);
@@ -125,7 +126,7 @@
     padding-bottom: 0.1em;
     position: absolute;
     left: 0.45em;
-    top: 0.17em;
+    top: 0.45em;
   }
 
   .google_title {
