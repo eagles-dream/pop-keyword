@@ -49,11 +49,21 @@
 .naver {
   width: 100%;
   border: 2px solid var(--green-dark-color);
+  font-size: 1.2em;
+  background-color: var(--main-text-color);
+}
+
+.naver:focus,
+.google:focus {
+  outline: none;
+  font-size: 1.2em;
+  background-color: var(--main-text-color);
 }
 
 .google {
   width: 100%;
   border: 2px solid lightgray;
+  font-size: 1.2em;
 }
 
 .naver_button {
