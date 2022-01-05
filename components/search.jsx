@@ -9,7 +9,7 @@ const Search = ({tab}) => {
   //const router = useRouter()
   const handleSearch = () => {
     const querry = searchRef.current.value
-    console.log(querry)
+    //console.log(querry)
     //router.push(`https://m.search.naver.com/search.naver?sm=mtp_hty.top&where=m&query=${querry}`, '_blank')
     {
       tab
@@ -24,6 +24,7 @@ const Search = ({tab}) => {
   }
   const onKeyPress = (event) => {
     if(event.key==='Enter') {
+      event.preventDefault()
       handleSearch()
     }
   }
