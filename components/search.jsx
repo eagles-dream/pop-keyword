@@ -35,12 +35,12 @@ const Search = ({tab}) => {
         tab
         ? <div className={styles.naver_search}>
             <span className={styles.naver_title}>N</span>
-            <input ref={searchRef} className={styles.naver} type='search' onKeyPress={onKeyPress} placeholder='검색어를 입력해 주세요' />
+            <input ref={searchRef} className={styles.naver} type='text' onKeyPress={onKeyPress} placeholder='검색어를 입력해 주세요' />
             <div className={styles.naver_button} type='submit' onClick={onClick}><i className="fas fa-search"></i></div>
           </div>
         : <div className={styles.google_search}>
             <span className={styles.google_title}>G</span>
-            <input ref={searchRef} className={styles.google} type='search' onKeyPress={onKeyPress} placeholder='검색어를 입력해 주세요' />
+            <input ref={searchRef} className={styles.google} type='text' onKeyPress={onKeyPress} placeholder='검색어를 입력해 주세요' />
             <div className={styles.google_button} type='submit' onClick={onClick}><i className="fas fa-search"></i></div>
           </div>
       }
