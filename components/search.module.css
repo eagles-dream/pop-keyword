@@ -60,6 +60,7 @@
   width: 100%;
   border: 2px solid lightgray;
   font-size: 1em;
+  font-weight: 700;
   background-color: var(--main-text-color);
   padding-left: 1em;
 }

@@ -5,7 +5,7 @@ const News = ({imgUrl, newsTitle, newsUrl}) => {
   //console.log(newsTitle)
   return (  
     <div className={styles.container}>
-      <div className={styles.title}>인기뉴스</div>
+      <div className={styles.title}>인기뉴스 TOP10</div>
       <div className={styles.list}>
         <div className={styles.left}>
         {
