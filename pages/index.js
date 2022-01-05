@@ -77,7 +77,7 @@ export default function Home({items, data, youtube}) {
           name="keywords" 
           content="실시간검색어, 키워드트렌드, 실시간트렌드, 마케팅, 키워드, 검색어순위, 인기뉴스" />
       </Head>
-      <Search tab={tab} />
+      {/* <Search tab={tab} /> */}
       <Title time={time} />
       <Tabs tab={tab} Tab1={Tab1} Tab2={Tab2} />
       {
@@ -124,7 +124,7 @@ export default function Home({items, data, youtube}) {
   return { props: { items, data, youtube }, revalidate: 1, }
 } */
 
-export async function getServerSideProps() {  
+/* export async function getServerSideProps() {  
   const [itemsRes, dataRes, youtubeRes] = await Promise.all([
     axios('https://trends.google.co.kr/trends/trendingsearches/daily/rss?geo=KR'), 
     axios('https://search.zum.com/issue.zum'),
@@ -137,4 +137,17 @@ export async function getServerSideProps() {
   ])
 
   return { props: { items, data, youtube } };
+} */
+
+export async function getServerSideProps() {  
+  const [itemsRes, dataRes] = await Promise.all([
+    axios('https://trends.google.co.kr/trends/trendingsearches/daily/rss?geo=KR'), 
+    axios('https://search.zum.com/issue.zum'),
+  ])  
+  const [items, data] = await Promise.all([  
+    JSON.parse(require("xml-js").xml2json(itemsRes.data)),
+    dataRes.data,
+  ])
+
+  return { props: { items, data } };
 }
