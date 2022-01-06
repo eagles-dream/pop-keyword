@@ -22,7 +22,6 @@
     display: flex;
     justify-content: space-between;
     width: 100vw;
-    padding: 0.1em 0;
     background-color: var(--main-text-color);
     position: fixed;
     bottom: 0;
