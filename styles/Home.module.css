@@ -19,7 +19,13 @@
   }
 
   .open_main {
-    display: inline-flex;
-    margin-bottom: 0.5em;
+    display: flex;
+    justify-content: space-between;
+    width: 100vw;
+    padding: 0.1em 0;
+    background-color: var(--main-text-color);
+    position: fixed;
+    bottom: 0;
+    z-index: 20;
   }
 }
