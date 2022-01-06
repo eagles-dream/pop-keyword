@@ -8,8 +8,11 @@ import Keyword2 from '../components/keyword2';
 import Footer from '../components/footer'
 import News from '../components/news';
 import Title from '../components/title'
+import BannerPc from '../components/banner/bannerpc'
 import { useEffect, useState } from 'react';
 import Search from '../components/search';
+//import Script from 'next/script';
+import OpenModal from '../components/openmodal';
 
 export default function Home({items, data, youtube}) {
   const [wordArray1, setWordArray1] = useState([])
@@ -23,6 +26,16 @@ export default function Home({items, data, youtube}) {
 
   const Tab1 = () => { setTab(true) }
   const Tab2 = () => { setTab(false) }
+
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => {
+    setShow(false);
+    window.location.reload();
+  }
+  const handleShow = () => {
+    setShow(true)
+  }
 
   const word1 = wordArray1.map((a)=>{return a.elements[0].elements[0].text})
   //console.log(word1)
@@ -78,6 +91,7 @@ export default function Home({items, data, youtube}) {
           content="실시간검색어, 실검, 네이버검색어, 구글검색어, 구글트랜드, 인기검색어, 키워드트렌드, 실시간트렌드, 마케팅, 키워드, 검색어순위, 인기뉴스" />
       </Head>
       <Search tab={tab} />
+      <BannerPc />
       <Title time={time} />
       <Tabs tab={tab} Tab1={Tab1} Tab2={Tab2} />
       {
@@ -86,7 +100,8 @@ export default function Home({items, data, youtube}) {
         :<Keyword1 time={time} word1={word1} traffic1={traffic1} />
       }
       {/* <Youtube youtubeArr={youtubeArr} /> */}
-      <News imgUrl={imgUrl} newsTitle={newsTitle} newsUrl={newsUrl}  />
+      <News imgUrl={imgUrl} newsTitle={newsTitle} newsUrl={newsUrl} />
+      <OpenModal show={show} handleClose={handleClose} handleShow={handleShow} />
       <Footer />
     </div>
   )

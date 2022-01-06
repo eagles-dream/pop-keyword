@@ -1,5 +1,6 @@
 import styles from './keyword2.module.css'
 import '@fortawesome/fontawesome-free/js/all.js'
+import BannerMobile from '../components/banner/bannermobile'
 
 const Keyword2 = ({word2, traffic2}) => {
   const icon = (data) => {
@@ -65,6 +66,7 @@ const Keyword2 = ({word2, traffic2}) => {
         }
         </div>
       </div>
+      <BannerMobile />
     </div>
   );
 }

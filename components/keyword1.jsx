@@ -1,4 +1,5 @@
 import styles from './keyword1.module.css'
+import BannerMobile from '../components/banner/bannermobile'
 
 const Keyword1 = ({word1, traffic1}) => {
   const num = traffic1.map((a)=>{return a.replace("+","")})
@@ -54,6 +55,7 @@ const Keyword1 = ({word1, traffic1}) => {
         }
         </div>
       </div>
+      <BannerMobile />
     </div>
   );
 }

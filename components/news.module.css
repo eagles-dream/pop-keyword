@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   width: 60%;
+  margin-top: 0.3em;
   margin-bottom: 0.5em;
   padding: 1em 0;
   background-color: var(--main-text-color);
@@ -51,8 +52,12 @@
 }
 
 .text {
-  padding-top: 0.5em;
+  padding-top: 0.3em;
   color: var(--main-dark-color);
+}
+
+.list a {
+  text-decoration: none;
 }
 
 @media screen and (max-width: 1200px) {
@@ -69,5 +74,9 @@
   .right {
     width: 100%;
     padding-right: 1em;
+  }
+
+  .text {
+    font-size: 0.95rem;
   }
 }
