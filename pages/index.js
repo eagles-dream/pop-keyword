@@ -104,7 +104,7 @@ export default function Home({items, data, youtube}) {
       {/* <OpenModal show={show} handleClose={handleClose} handleShow={handleShow} /> */}
       <Script type="text/javascript" src="https://openmain.pstatic.net/js/openmain.js" />
       <div className={styles.open_main}>
-        <div className="nv-openmain" data-title="인기검색어" data-url="http://localhost:3000" data-type="W2"></div>
+        <div className="nv-openmain" data-title="인기검색어" data-url="https://pop-keyword.vercel.app/" data-type="W2"></div>
       </div>
       <Footer />
     </div>
