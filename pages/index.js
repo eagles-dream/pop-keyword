@@ -11,8 +11,8 @@ import Title from '../components/title'
 import BannerPc from '../components/banner/bannerpc'
 import { useEffect, useState } from 'react';
 import Search from '../components/search';
-//import Script from 'next/script';
-import OpenModal from '../components/openmodal';
+import Script from 'next/script';
+//import OpenModal from '../components/openmodal';
 
 export default function Home({items, data, youtube}) {
   const [wordArray1, setWordArray1] = useState([])
@@ -101,7 +101,11 @@ export default function Home({items, data, youtube}) {
       }
       {/* <Youtube youtubeArr={youtubeArr} /> */}
       <News imgUrl={imgUrl} newsTitle={newsTitle} newsUrl={newsUrl} />
-      <OpenModal show={show} handleClose={handleClose} handleShow={handleShow} />
+      {/* <OpenModal show={show} handleClose={handleClose} handleShow={handleShow} /> */}
+      <Script type="text/javascript" src="https://openmain.pstatic.net/js/openmain.js" />
+      <div className={styles.open_main}>
+        <div className="nv-openmain" data-title="인기검색어" data-url="http://localhost:3000" data-type="W2"></div>
+      </div>
       <Footer />
     </div>
   )
