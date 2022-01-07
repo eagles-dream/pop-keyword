@@ -4,6 +4,7 @@ import axios from 'axios';
 import Tabs from '../components/tabs';
 import Keyword1 from '../components/keyword1';
 import Keyword2 from '../components/keyword2';
+import Keyword3 from '../components/keyword3';
 //import Youtube from '../components/youtube';
 import Footer from '../components/footer'
 import News from '../components/news';
@@ -19,13 +20,18 @@ export default function Home({items, data, youtube}) {
   const [wordArray2, setWordArray2] = useState([])
   //const [youtubeArr, setYoutubeArr] = useState([])
   const [time, setTime] = useState()
-  const [tab, setTab] = useState(true)
+
+  //여기서 부터 수정작업 
+  const [tab1, setTab1] = useState(true)
+  const [tab2, setTab2] = useState(false)
+  const [tab3, setTab3] = useState(false)
   //console.log(wordArray1)
   //console.log(youtube)
   //console.log(youtubeArr)
 
-  const Tab1 = () => { setTab(true) }
-  const Tab2 = () => { setTab(false) }
+  const Tab1 = () => { setTab1(true), setTab2(false), setTab3(false) }
+  const Tab2 = () => { setTab1(false), setTab2(true), setTab3(false) }
+  const Tab3 = () => { setTab1(false), setTab2(false), setTab3(true) }
 
   const [show, setShow] = useState(false);
 
@@ -90,16 +96,17 @@ export default function Home({items, data, youtube}) {
           name="keywords" 
           content="실시간검색어, 실검, 네이버검색어, 구글검색어, 구글트랜드, 인기검색어, 키워드트렌드, 실시간트렌드, 마케팅, 키워드, 검색어순위, 인기뉴스" />
       </Head>
-      <Search tab={tab} />
+      <Search tab1={tab1} tab2={tab2} />
       <BannerPc />
-      <Title time={time} />
-      <Tabs tab={tab} Tab1={Tab1} Tab2={Tab2} />
+      <Title time={time} tab3={tab3} />
+      <Tabs tab1={tab1} tab2={tab2} tab3={tab3} Tab1={Tab1} Tab2={Tab2}  Tab3={Tab3} />
       {
-        tab
+        tab1
         ?<Keyword2 time={time} word2={word2} traffic2={traffic2} />
-        :<Keyword1 time={time} word1={word1} traffic1={traffic1} />
+        : tab2 ? <Keyword1 time={time} word1={word1} traffic1={traffic1} />
+               : <Keyword3 />
       }
-      {/* <Youtube youtubeArr={youtubeArr} /> */}
+      {/* <Youtube youtubeArr={youtubeArr} /> */}      
       <News imgUrl={imgUrl} newsTitle={newsTitle} newsUrl={newsUrl} />
       {/* <OpenModal show={show} handleClose={handleClose} handleShow={handleShow} /> */}
       <Script type="text/javascript" src="https://openmain.pstatic.net/js/openmain.js" />

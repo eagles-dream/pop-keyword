@@ -1,8 +1,9 @@
 import { useRef } from 'react';
+import Coupang from './coupang';
 import styles from './search.module.css'
 //import { useRouter } from 'next/router';
 
-const Search = ({tab}) => {
+const Search = ({tab1, tab2}) => {
   //const [querry, setQuerry] = useState()
   //console.log(querry)
   const searchRef = useRef()
@@ -12,7 +13,7 @@ const Search = ({tab}) => {
     //console.log(querry)
     //router.push(`https://m.search.naver.com/search.naver?sm=mtp_hty.top&where=m&query=${querry}`, '_blank')
     {
-      tab
+      tab1
       ? window.open(`https://m.search.naver.com/search.naver?sm=mtp_hty.top&where=m&query=${querry}`, '_blank')
       : window.open(`https://www.google.com/search?q=${querry}`, '_blank')
     }
@@ -33,17 +34,18 @@ const Search = ({tab}) => {
     <div className={styles.container}>
       <div className={styles.logo}></div>
       {
-        tab
+        tab1
         ? <div className={styles.naver_search}>
             <span className={styles.naver_title}>N</span>
             <input ref={searchRef} className={styles.naver} type='text' onKeyPress={onKeyPress} placeholder='검색어를 입력해 주세요' />
             <div className={styles.naver_button} type='submit' onClick={onClick}><i className="fas fa-search"></i></div>
           </div>
-        : <div className={styles.google_search}>
-            <span className={styles.google_title}>G</span>
-            <input ref={searchRef} className={styles.google} type='text' onKeyPress={onKeyPress} placeholder='검색어를 입력해 주세요' />
-            <div className={styles.google_button} type='submit' onClick={onClick}><i className="fas fa-search"></i></div>
-          </div>
+        : tab2 ?  <div className={styles.google_search}>
+                    <span className={styles.google_title}>G</span>
+                    <input ref={searchRef} className={styles.google} type='text' onKeyPress={onKeyPress} placeholder='검색어를 입력해 주세요' />
+                    <div className={styles.google_button} type='submit' onClick={onClick}><i className="fas fa-search"></i></div>
+                  </div>
+               :  <Coupang />
       }
       <div className={styles.guide}></div>
     </div>

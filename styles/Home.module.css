@@ -22,10 +22,9 @@
     display: flex;
     justify-content: space-between;
     width: 100vw;
-    background-color: var(--main-text-color);
     position: fixed;
     bottom: 0;
-    padding: 0.2em 0;
+    padding-bottom: 0.2em;
     z-index: 20;
   }
 }

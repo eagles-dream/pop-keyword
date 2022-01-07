@@ -1,5 +1,6 @@
 import styles from './news.module.css'
 import BannerMobile2 from '../components/banner/bannermobile2'
+import BannerMobile3 from './banner/bannermobile3';
 
 const News = ({imgUrl, newsTitle, newsUrl}) => {
   //console.log(newsTitle)
@@ -41,6 +42,7 @@ const News = ({imgUrl, newsTitle, newsUrl}) => {
         }
         </div>
       </div>
+      <BannerMobile3 /> 
     </div>
   );
 }
