@@ -17,7 +17,7 @@ const Tabs = ({tab1, tab2, tab3, Tab1, Tab2, Tab3}) => {
       {
         tab3
         ? <span className={styles.title_active} onClick={Tab3}>쿠팡기준</span>
-        : <span className={styles.title} onClick={Tab3}>구팡기준</span>
+        : <span className={styles.title} onClick={Tab3}>쿠팡기준</span>
       }      
     </div>
   )
