@@ -15,7 +15,7 @@ import Search from '../components/search';
 import Script from 'next/script';
 //import OpenModal from '../components/openmodal';
 
-export default function Home({items, data, youtube}) {
+export default function Home({items, data, coupangData}) {
   const [wordArray1, setWordArray1] = useState([])
   const [wordArray2, setWordArray2] = useState([])
   //const [youtubeArr, setYoutubeArr] = useState([])
@@ -104,7 +104,7 @@ export default function Home({items, data, youtube}) {
         tab1
         ?<Keyword2 time={time} word2={word2} traffic2={traffic2} />
         : tab2 ? <Keyword1 time={time} word1={word1} traffic1={traffic1} />
-               : <Keyword3 />
+               : <Keyword3 coupangData={coupangData} />
       }
       {/* <Youtube youtubeArr={youtubeArr} /> */}      
       <News imgUrl={imgUrl} newsTitle={newsTitle} newsUrl={newsUrl} />
@@ -168,14 +168,16 @@ export default function Home({items, data, youtube}) {
 } */
 
 export async function getServerSideProps() {  
-  const [itemsRes, dataRes] = await Promise.all([
+  const [itemsRes, dataRes, coupangRes] = await Promise.all([
     axios('https://trends.google.co.kr/trends/trendingsearches/daily/rss?geo=KR'), 
     axios('https://search.zum.com/issue.zum'),
-  ])  
-  const [items, data] = await Promise.all([  
+    axios('https://ads-partners.coupang.com/widgets.html?id=546675&template=carousel&trackingCode=AF6264577&subId=&width=680&height=70'),
+  ])
+  const [items, data, coupangData] = await Promise.all([  
     JSON.parse(require("xml-js").xml2json(itemsRes.data)),
     dataRes.data,
+    coupangRes.data,
   ])
 
-  return { props: { items, data } };
+  return { props: { items, data, coupangData } };
 }

@@ -2,27 +2,49 @@ import styles from './keyword3.module.css'
 import '@fortawesome/fontawesome-free/js/all.js'
 import BannerMobile from './banner/bannermobile'
 
-const Keyword3 = () => {
-  const word2 = ["준비중입니다.", "준비중입니다.", "준비중입니다.", "준비중입니다.", "준비중입니다.", "준비중입니다.", "준비중입니다.", "준비중입니다.", "준비중입니다.", "준비중입니다."]
+const Keyword3 = ({coupangData}) => {
+  //console.log(coupangData)
+  const start = coupangData.indexOf("[")
+  //console.log(start)
+  const end = coupangData.indexOf("]", start)
+  //console.log(end)
+  const item = coupangData.substring(start+1, end-1)
+  //console.log(item)
+  
+  const list = item.split("},")
+  const lists = list.map((a)=>{return a.concat("}")})
+  //console.log(lists[0])
+  
+  const final = lists.map((a)=>{return JSON.parse(a)})
+  
+  /* const baseUrlStart = coupangData.indexOf("thumbnailBaseUrl")
+  const baseUrlEnd = coupangData.indexOf(",", baseUrlStart)
+  console.log(baseUrlStart)
+  console.log(baseUrlEnd)
+  const baseUrl = coupangData.substring(baseUrlStart+18, baseUrlEnd)
+  console.log(baseUrl)
+  const baseUrlFinal = JSON.parse(baseUrl)
+  console.log(baseUrlFinal)
+
+  const thumbnail = final[0].imagePath
+  console.log(thumbnail) */
+  
   return (  
     <div className={styles.container}>
       <div className={styles.order}>
         <div className={styles.left}>
         {
-          word2.slice(0, 5).map((item, i)=>{
-            //const url = `https://m.search.naver.com/search.naver?where=m_news&query=${item}`
+          final.slice(10, 15).map((item, i)=>{
             return (
               <div className={styles.keyword} key={i}>
-                {/* <a href={url} target="_blank" rel="noreferrer"> */}
+                <a href={item.landingUrl} target="_blank" rel="noreferrer">
                   <div className={styles.list_top}>
                     <div className={styles.list}>
                       <span className={styles.number}>{i+1}</span>
-                      <span className={styles.word}>{item}</span>
-                    </div>
-                    <div className={styles.traffic}>
+                      <span className={styles.word}>{item.name}</span>
                     </div>
                   </div>
-                {/* </a> */}
+                </a>
               </div>
             )
           })
@@ -30,20 +52,17 @@ const Keyword3 = () => {
         </div>
         <div className={styles.right}>
         {
-          word2.slice(5, 10).map((item, i)=>{
-            //const url = `https://m.search.naver.com/search.naver?where=m_news&query=${item}`
+          final.slice(15, 20).map((item, i)=>{
             return (
               <div className={styles.keyword} key={i}>
-                {/* <a href={url} target="_blank" rel="noreferrer"> */}
+                <a href={item.landingUrl} target="_blank" rel="noreferrer">
                   <div className={styles.list_top}>
                     <div className={styles.list}>
                       <span className={styles.number}>{i+6}</span>
-                      <span className={styles.word}>{item}</span>
-                    </div>
-                    <div className={styles.traffic}>
+                      <span className={styles.word}>{item.name}</span>
                     </div>
                   </div>
-                {/* </a> */}
+                </a>
               </div>
             )
           })
