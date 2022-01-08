@@ -13,6 +13,7 @@ import BannerPc from '../components/banner/bannerpc'
 import { useEffect, useState } from 'react';
 import Search from '../components/search';
 import Script from 'next/script';
+import Coupang10 from '../components/coupang10';
 //import OpenModal from '../components/openmodal';
 
 export default function Home({items, data, coupangData}) {
@@ -108,6 +109,7 @@ export default function Home({items, data, coupangData}) {
       }
       {/* <Youtube youtubeArr={youtubeArr} /> */}      
       <News imgUrl={imgUrl} newsTitle={newsTitle} newsUrl={newsUrl} />
+      <Coupang10 coupangData={coupangData} imgUrl={imgUrl} newsTitle={newsTitle} newsUrl={newsUrl} />
       {/* <OpenModal show={show} handleClose={handleClose} handleShow={handleShow} /> */}
       <Script type="text/javascript" src="https://openmain.pstatic.net/js/openmain.js" />
       <div className={styles.open_main}>

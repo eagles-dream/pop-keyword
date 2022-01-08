@@ -41,7 +41,7 @@
 
 .number {
   width: 1.5em;
-  color: var(--secondary-text-color);
+  color: rgb(89, 148, 245);
   font-weight: 500;
 }
 

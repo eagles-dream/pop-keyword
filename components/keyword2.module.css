@@ -56,7 +56,7 @@
 
 .number {
   width: 1.5em;
-  color: var(--secondary-text-color);
+  color: var(--green-dark-color);
   font-weight: 500;
   justify-content: end;
 }

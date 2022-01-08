@@ -47,7 +47,7 @@
 
 .number {
   width: 1.5em;
-  color: var(--secondary-text-color);
+  color: gray;
   font-weight: 500;
   justify-content: end;
 }
