@@ -34,7 +34,7 @@ const Keyword3 = ({coupangData}) => {
       <div className={styles.order}>
         <div className={styles.left}>
         {
-          final.slice(10, 15).map((item, i)=>{
+          final.slice(0, 5).map((item, i)=>{
             return (
               <div className={styles.keyword} key={i}>
                 <a href={item.landingUrl} target="_blank" rel="noreferrer">
@@ -52,7 +52,7 @@ const Keyword3 = ({coupangData}) => {
         </div>
         <div className={styles.right}>
         {
-          final.slice(15, 20).map((item, i)=>{
+          final.slice(5, 10).map((item, i)=>{
             return (
               <div className={styles.keyword} key={i}>
                 <a href={item.landingUrl} target="_blank" rel="noreferrer">
