@@ -3,7 +3,7 @@ import '../styles/globals.css'
 import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 
-import * as ga from '../lib/ga'
+import * as ga from '../lib/ga/gtag'
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter()
