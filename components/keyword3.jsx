@@ -1,6 +1,6 @@
 import styles from './keyword3.module.css'
 import '@fortawesome/fontawesome-free/js/all.js'
-import BannerMobile from './banner/bannermobile'
+import BannerMobile5 from './banner/bannermobile5'
 
 const Keyword3 = ({coupangData}) => {
   //console.log(coupangData)
@@ -69,7 +69,7 @@ const Keyword3 = ({coupangData}) => {
         }
         </div>
       </div>
-      <BannerMobile />
+      <BannerMobile5 />
     </div>
   );
 }
