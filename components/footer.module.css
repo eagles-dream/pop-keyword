@@ -12,6 +12,7 @@
 .copyright {
   font-size: 1.3rem;
   font-style: italic;
+  padding-bottom: 0.2em;
 }
 
 @media screen and (max-width: 1200px) {
