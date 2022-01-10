@@ -89,13 +89,13 @@ export default function Home({items, data, coupangData}) {
   return (
     <div className={styles.container}>
       <Head>
-        <title>인기 검색어</title>
+        <title>랭크보드</title>
         <meta 
           name="description" 
-          content="네이버, 구글과 연결해 실시간 검색어 순위 및 인기뉴스 등 실시간 트렌드를 확인할 수 있는 서비스입니다." />
+          content="네이버, 구글, 유튜브, 쿠팡과 연결해 실시간 검색어 순위 및 인기뉴스, 인기유튜브, 인기상품 등 실시간 트렌드를 확인할 수 있는 서비스입니다." />
         <meta 
           name="keywords" 
-          content="실시간검색어, 실검, 네이버검색어, 구글검색어, 구글트랜드, 인기검색어, 키워드트렌드, 실시간트렌드, 마케팅, 키워드, 검색어순위, 인기뉴스" />
+          content="실시간검색어, 실검, 네이버검색어, 구글검색어, 구글트랜드, 인기유튜브, 인기상품, 인기검색어, 키워드트렌드, 실시간트렌드, 마케팅, 키워드, 검색어순위, 인기뉴스" />
       </Head>
       <Search tab1={tab1} tab2={tab2} />
       <BannerPc />
@@ -114,7 +114,7 @@ export default function Home({items, data, coupangData}) {
       <Script type="text/javascript" src="https://openmain.pstatic.net/js/openmain.js" />
       <div className={styles.open_main}>
         <div className={styles.space}></div>
-        <div className="nv-openmain" data-title="인기검색어" data-url="https://pop-keyword.vercel.app/" data-type="W2"></div>
+        <div className="nv-openmain" data-title="인기검색어" data-url="https://www.rankboard.co.kr/" data-type="W2"></div>
         <div className={styles.space}></div>
       </div>
       <Footer />
