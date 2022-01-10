@@ -1,6 +1,7 @@
 import styles from './video.module.css'
 
 const Video = ({videoId}) => {
+  //console.log(videoId)
   return (  
     <div className={styles.container}>
       <iframe 
