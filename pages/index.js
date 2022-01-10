@@ -9,7 +9,7 @@ import Youtube from '../components/youtube';
 import Footer from '../components/footer'
 import News from '../components/news';
 import Title from '../components/title'
-import BannerPc from '../components/banner/bannerpc'
+//import BannerPc from '../components/banner/bannerpc'
 import { useEffect, useState } from 'react';
 import Search from '../components/search';
 import Script from 'next/script';
@@ -98,7 +98,7 @@ export default function Home({items, data, coupangData, youtube}) {
           content="실시간검색어, 실검, 네이버검색어, 구글검색어, 구글트랜드, 인기유튜브, 인기상품, 인기검색어, 키워드트렌드, 실시간트렌드, 마케팅, 키워드, 검색어순위, 인기뉴스" />
       </Head>
       <Search tab1={tab1} tab2={tab2} />
-      <BannerPc />
+      {/* <BannerPc /> */}
       <Title time={time} tab3={tab3} />
       <Tabs tab1={tab1} tab2={tab2} tab3={tab3} Tab1={Tab1} Tab2={Tab2}  Tab3={Tab3} />
       {
