@@ -5,7 +5,7 @@
   text-align: center;
   background-color: var(--main-dark-color);
   color: var(--main-text-color);
-  padding: 3em 1em;
+  padding: 3em 0.5em;
   z-index: 10;
 }
 
@@ -24,7 +24,6 @@
   .container {
     display: flex;
     flex-direction: column;
-    padding: 3em 0.5em;
     padding-bottom: 7em;
   }
 
