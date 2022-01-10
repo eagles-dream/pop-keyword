@@ -114,7 +114,7 @@ export default function Home({items, data, coupangData, youtube}) {
       <Script type="text/javascript" src="https://openmain.pstatic.net/js/openmain.js" />
       <div className={styles.open_main}>
         <div className={styles.space}></div>
-        <div className="nv-openmain" data-title="인기검색어" data-url="https://www.rankboard.co.kr/" data-type="W2"></div>
+        <div className="nv-openmain" data-title="랭크보드" data-url="https://www.rankboard.co.kr/" data-type="W2"></div>
         <div className={styles.space}></div>
       </div>
       <Footer />
