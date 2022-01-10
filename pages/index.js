@@ -5,7 +5,7 @@ import Tabs from '../components/tabs';
 import Keyword1 from '../components/keyword1';
 import Keyword2 from '../components/keyword2';
 import Keyword3 from '../components/keyword3';
-//import Youtube from '../components/youtube';
+import Youtube from '../components/youtube';
 import Footer from '../components/footer'
 import News from '../components/news';
 import Title from '../components/title'
@@ -16,10 +16,10 @@ import Script from 'next/script';
 import Coupang10 from '../components/coupang10';
 //import OpenModal from '../components/openmodal';
 
-export default function Home({items, data, coupangData}) {
+export default function Home({items, data, coupangData, youtube}) {
   const [wordArray1, setWordArray1] = useState([])
   const [wordArray2, setWordArray2] = useState([])
-  //const [youtubeArr, setYoutubeArr] = useState([])
+  const [youtubeArr, setYoutubeArr] = useState([])
   const [time, setTime] = useState()
 
   //여기서 부터 수정작업 
@@ -78,9 +78,9 @@ export default function Home({items, data, coupangData}) {
     setWordArray2(data.issue.slice(0,20));
   }, [])
 
-  /* useEffect(()=>{
+  useEffect(()=>{
     setYoutubeArr(youtube.items);
-  }, []) */
+  }, [])
 
   useEffect(()=>{
     setTime(data.issueTime);
@@ -107,8 +107,8 @@ export default function Home({items, data, coupangData}) {
         : tab2 ? <Keyword1 time={time} word1={word1} traffic1={traffic1} />
                : <Keyword3 coupangData={coupangData} />
       }
-      {/* <Youtube youtubeArr={youtubeArr} /> */}      
       <News imgUrl={imgUrl} newsTitle={newsTitle} newsUrl={newsUrl} />
+      <Youtube youtubeArr={youtubeArr} />      
       <Coupang10 coupangData={coupangData} imgUrl={imgUrl} newsTitle={newsTitle} newsUrl={newsUrl} />
       {/* <OpenModal show={show} handleClose={handleClose} handleShow={handleShow} /> */}
       <Script type="text/javascript" src="https://openmain.pstatic.net/js/openmain.js" />
@@ -170,16 +170,18 @@ export default function Home({items, data, coupangData}) {
 } */
 
 export async function getServerSideProps() {  
-  const [itemsRes, dataRes, coupangRes] = await Promise.all([
+  const [itemsRes, dataRes, coupangRes, youtubeRes] = await Promise.all([
     axios('https://trends.google.co.kr/trends/trendingsearches/daily/rss?geo=KR'), 
     axios('https://search.zum.com/issue.zum'),
     axios('https://ads-partners.coupang.com/widgets.html?id=546675&template=carousel&trackingCode=AF6264577&subId=&width=680&height=70'),
+    axios(`https://youtube.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&maxResults=10&regionCode=KR&key=${process.env.API_KEY}`),
   ])
-  const [items, data, coupangData] = await Promise.all([  
+  const [items, data, coupangData, youtube] = await Promise.all([  
     JSON.parse(require("xml-js").xml2json(itemsRes.data)),
     dataRes.data,
     coupangRes.data,
+    youtubeRes.data,
   ])
 
-  return { props: { items, data, coupangData } };
+  return { props: { items, data, coupangData, youtube } };
 }

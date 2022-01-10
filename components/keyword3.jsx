@@ -69,7 +69,7 @@ const Keyword3 = ({coupangData}) => {
         }
         </div>
       </div>
-      <BannerMobile5 />
+      {/* <BannerMobile5 /> */}
     </div>
   );
 }

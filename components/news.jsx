@@ -23,7 +23,7 @@ const News = ({imgUrl, newsTitle, newsUrl}) => {
           )})
         }
         </div>
-        <BannerMobile2 />
+        {/* <BannerMobile2 /> */}
         <div className={styles.right}>
         {
           imgUrl.slice(5, 10).map((item, i)=>{ 

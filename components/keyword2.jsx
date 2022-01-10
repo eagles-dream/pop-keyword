@@ -66,7 +66,7 @@ const Keyword2 = ({word2, traffic2}) => {
         }
         </div>
       </div>
-      <BannerMobile />
+      {/* <BannerMobile /> */}
     </div>
   );
 }
