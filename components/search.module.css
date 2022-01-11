@@ -54,7 +54,7 @@
   justify-content: center;
   align-items: center;
   width: 60px;
-  border: 2px solid #030303;
+  border: 1px solid #030303;
   border-right: none;
   background-color: var(--main-text-color);
   color: rgb(255, 0, 0);
@@ -83,7 +83,7 @@
 
 .youtube {
   width: 100%;
-  border: 2px solid #030303;
+  border: 1px solid #030303;
   font-size: 1em;
   font-weight: 700;
   background-color: var(--main-text-color);
@@ -137,7 +137,7 @@
   justify-content: center;
   align-items: center;
   width: 70px;
-  border: 2px solid #030303;
+  border: 1px solid #030303;
   border-left: none;
   background-color: var(--main-text-color);
   color: #030303;
