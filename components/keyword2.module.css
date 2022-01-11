@@ -108,12 +108,12 @@
 
 @media screen and (min-width: 2500px) {
   .container {
-    width: 60%;
+    width: 50%;
   }
 }
 
 @media screen and (min-width: 3000px) {
   .container {
-    width: 50%;
+    width: 40%;
   }
 }
