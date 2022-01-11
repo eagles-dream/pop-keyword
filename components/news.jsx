@@ -1,4 +1,5 @@
 import styles from './news.module.css'
+//import Image from "next/image";
 import BannerMobile2 from '../components/banner/bannermobile2'
 
 const News = ({imgUrl, newsTitle, newsUrl}) => {
@@ -14,6 +15,7 @@ const News = ({imgUrl, newsTitle, newsUrl}) => {
               <a href={newsUrl[i]} key={i} target="_blank" rel="noreferrer">
                 <div className={styles.news}>
                   <img className={styles.img} alt="news" src={item} />
+                  {/* <Image className={styles.img} src={item} width={70} height={70} /> */}
                   <div className={styles.order}>
                     <span className={styles.number}>인기 {i+1}위</span>
                     <span className={styles.text}>{newsTitle[i].replace(/&#39;|&quot;|<b>\<\/b>|<b>|<\/b>/g,"")}</span>
@@ -31,6 +33,7 @@ const News = ({imgUrl, newsTitle, newsUrl}) => {
               <a href={newsUrl[i+5]} key={i} target="_blank" rel="noreferrer">
                 <div className={styles.news}>
                   <img className={styles.img} alt="news" src={item} />
+                  {/* <Image className={styles.img} src={item} width={70} height={70} /> */}
                   <div className={styles.order}>
                     <span className={styles.number}>인기 {i+6}위</span>
                     <span className={styles.text}>{newsTitle[i+5].replace(/&#39;|&quot;|<b>\<\/b>|<b>|<\/b>/g,"")}</span>
