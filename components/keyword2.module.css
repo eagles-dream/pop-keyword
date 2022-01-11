@@ -105,3 +105,15 @@
     padding-right: 0;
   }
 }
+
+@media screen and (min-width: 2500px) {
+  .container {
+    width: 60%;
+  }
+}
+
+@media screen and (min-width: 3000px) {
+  .container {
+    width: 50%;
+  }
+}

@@ -43,7 +43,6 @@
   width: 1.5em;
   color: rgb(255, 0, 0);
   font-weight: 500;
-  line-height: 1.2em;
 }
 
 .word {
@@ -67,5 +66,17 @@
   .right {
     width: 100%;
     padding-right: 0;
+  }
+}
+
+@media screen and (min-width: 2500px) {
+  .container {
+    width: 60%;
+  }
+}
+
+@media screen and (min-width: 3000px) {
+  .container {
+    width: 50%;
   }
 }
