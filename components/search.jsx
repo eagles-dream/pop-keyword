@@ -34,7 +34,7 @@ const Search = ({tab1, tab2, tab3}) => {
 
   return(
     <div className={styles.container}>
-      <div className={styles.logo}></div>
+      <div className={styles.logo}><img src='/logo.png'></img><span className={styles.text1}>랭</span><span>크</span><span className={styles.text2}>보</span><span>드</span></div>
       {
         tab1
         ? <div className={styles.naver_search}>
