@@ -49,11 +49,14 @@
   width: 1.5em;
   color: gray;
   font-weight: 500;
-  justify-content: end;
+  line-height: 1.2em;
 }
 
 .word {
   color: var(--main-dark-color);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .traffic {
