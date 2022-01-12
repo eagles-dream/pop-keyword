@@ -243,3 +243,31 @@
     color: #030303;
   }
 }
+
+@media screen and (min-width: 2500px) {
+  .naver_search,
+  .google_search,
+  .youtube_search {
+    width: 50%;
+  }
+
+  .logo,
+  .guide {
+    width: 25%;
+    text-align: center;
+  }
+}
+
+@media screen and (min-width: 3000px) {
+  .naver_search,
+  .google_search,
+  .youtube_search {
+    width: 40%;
+  }
+
+  .logo,
+  .guide {
+    width: 30%;
+    text-align: center;
+  }
+}
