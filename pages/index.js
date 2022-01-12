@@ -99,6 +99,12 @@ export default function Home({items, data, coupangData, youtube}) {
         <meta 
           name="keywords" 
           content="실시간검색어, 실검, 네이버검색어, 구글검색어, 구글트랜드, 인기유튜브, 인기상품, 인기검색어, 키워드트렌드, 실시간트렌드, 마케팅, 키워드, 검색어순위, 인기뉴스" />
+        
+        <meta property="og:type" content="website" /> 
+        <meta property="og:title" content="랭크보드" />
+        <meta property="og:description" content="네이버, 구글, 유튜브, 쿠팡과 연결해 실시간 검색어 순위 및 인기뉴스, 인기유튜브, 인기상품 등 실시간 트렌드를 확인할 수 있는 서비스입니다." />
+        <meta property="og:image" content="https://www.rankboard.co.kr/logo.png" />
+        <meta property="og:url" content="https://www.rankboard.co.kr" />
       </Head>
       <Search tab1={tab1} tab2={tab2} tab3={tab3} />
       {/* <BannerPc /> */}      
