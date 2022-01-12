@@ -32,5 +32,7 @@ a {
   --first-font-size: 1.2rem;
   --second-font-size: 1rem;
   --third-font-size: 0.8rem;
-  --width-30: 16%;
+  --width-50: 50%;
+  --width-40: 40%;
+  --width-30: 30%;
 }

@@ -249,7 +249,7 @@
   .naver_search,
   .google_search,
   .youtube_search {
-    width: 50%;
+    width: var(--width-50);
   }
 
   .logo,
@@ -262,12 +262,12 @@
   .naver_search,
   .google_search,
   .youtube_search {
-    width: 34%;
+    width: var(--width-40);
   }
 
   .logo,
   .guide {
-    width: 33%;
+    width: 30%;
   }
 }
 
@@ -280,6 +280,6 @@
 
   .logo,
   .guide {
-    width: 42%;
+    width: 35%;
   }
 }
