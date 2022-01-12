@@ -24,3 +24,9 @@
     width: 34%;
   }
 }
+
+@media screen and (min-width: 3500px) {
+  .coupang {
+    width: var(--width-30);
+  }
+}

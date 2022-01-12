@@ -54,6 +54,7 @@ const Search = ({tab1, tab2, tab3}) => {
                           <div className={styles.youtube_button} type='submit' onClick={onClick}><i className={`fas fa-search`}></i></div>
                         </div>
       }
+      <div className={styles.guide}></div>
     </div>
   )
 }
