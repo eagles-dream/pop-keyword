@@ -16,11 +16,11 @@
   padding-right: 5.5em;
 }
 
-.logo img {
+/* .logo img {
   width: 20px;
   height: 20px;
   margin-right: 0.5em;
-}
+} */
 
 .logo span {
   font-size: 1.5rem;
@@ -28,13 +28,9 @@
   opacity: 0.7;
 }
 
-/* .text1 {
-  color: red;
+.text1 {
+  margin-left: 0.5em;
 }
-
-.text2 {
-  color: gray;
-} */
 
 .naver_search,
 .google_search,

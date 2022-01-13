@@ -1,9 +1,10 @@
 import { useRef, useState } from 'react';
 import Video from './video';
 import styles from './youtube.module.css'
+import Image from "next/image";
 
 const Youtube = ({youtubeArr}) => {
-  //console.log(youtubeArr)
+  //console.log(youtubeArr.map((a)=>{return a.snippet.thumbnails.default.url}))
   const [videoId, setVideoId] = useState(null)
   const playerRef = useRef()
   const goToPlayer = () => {
@@ -26,7 +27,10 @@ const Youtube = ({youtubeArr}) => {
                         setVideoId(a.id);
                         goToPlayer();
                       }}>
-                    <img className={styles.img} alt="youtube" src={a.snippet.thumbnails.default.url}></img>
+                    {/* <img className={styles.img} alt="youtube" src={a.snippet.thumbnails.default.url}></img> */}
+                    <div>
+                      <Image className={styles.img} alt="youtube" src={a.snippet.thumbnails.default.url} width={120} height={100} layout='fixed' />
+                    </div>
                     <div className={styles.order}>
                       <span className={styles.number}>인기 {i+1}위</span>
                       <span className={styles.text}>{a.snippet.title}</span>
@@ -48,7 +52,10 @@ const Youtube = ({youtubeArr}) => {
                         setVideoId(a.id);
                         goToPlayer();
                       }}>
-                    <img className={styles.img} alt="youtube" src={a.snippet.thumbnails.default.url}></img>
+                    {/* <img className={styles.img} alt="youtube" src={a.snippet.thumbnails.default.url}></img> */}
+                    <div>
+                      <Image className={styles.img} alt="youtube" src={a.snippet.thumbnails.default.url} width={120} height={100} layout='fixed' />
+                    </div>
                     <div className={styles.order}>
                       <span className={styles.number}>인기 {i+6}위</span>
                       <span className={styles.text}>{a.snippet.title}</span>

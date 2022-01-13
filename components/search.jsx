@@ -2,6 +2,7 @@ import { useRef } from 'react';
 import Coupang from './coupang';
 import styles from './search.module.css'
 import '@fortawesome/fontawesome-free/js/all.js'
+import Image from "next/image";
 //import { useRouter } from 'next/router';
 
 const Search = ({tab1, tab2, tab3}) => {
@@ -34,7 +35,14 @@ const Search = ({tab1, tab2, tab3}) => {
 
   return(
     <div className={styles.container}>
-      <div className={styles.logo}><img src='/favicon.ico' alt="logo"></img><span className={styles.text1}>랭</span><span>크</span><span className={styles.text2}>보</span><span>드</span></div>
+      <div className={styles.logo}>
+        {/* <img src='/favicon.ico' alt="logo"></img> */}
+        <Image src='/favicon.ico' alt="logo" width={20} height={20} />
+        <span className={styles.text1}>랭</span>
+        <span>크</span>
+        <span className={styles.text2}>보</span>
+        <span>드</span>
+      </div>
       {
         tab1
         ? <div className={styles.naver_search}>
