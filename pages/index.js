@@ -17,7 +17,7 @@ import Script from 'next/script';
 import Coupang10 from '../components/coupang10';
 //import OpenModal from '../components/openmodal';
 
-export default function Home({items, data, coupangData, youtube}) {
+export default function Home({items, data, coupangData1, coupangData2, /* coupangData3, */ /* coupangData4, */ youtube}) {
   const [wordArray1, setWordArray1] = useState([])
   const [wordArray2, setWordArray2] = useState([])
   const [youtubeArr, setYoutubeArr] = useState([])
@@ -73,6 +73,55 @@ export default function Home({items, data, coupangData, youtube}) {
   //const newsUrl = wordArray1.map((a)=>{return a.elements[7]})
   //console.log(newsUrl)
 
+  const start1 = coupangData1.indexOf("[")
+  const end1 = coupangData1.indexOf("]", start1)
+  const item1 = coupangData1.substring(start1+1, end1-1)  
+  const list1 = item1.split("},")
+  const lists1 = list1.map((a)=>{return a.concat("}")})
+  const lists1End = lists1.slice(0, 27)
+  //console.log(lists1End)
+
+  const start2 = coupangData2.indexOf("[")
+  const end2 = coupangData2.indexOf("]", start2)
+  const item2 = coupangData2.substring(start2+1, end2-1)  
+  const list2 = item2.split("},")
+  const lists2 = list2.map((a)=>{return a.concat("}")})
+  const lists2End = lists2.slice(0, 10)
+  //console.log(lists2End)
+
+  /* const start3 = coupangData3.indexOf("[")
+  const end3 = coupangData3.indexOf("]", start3)
+  const item3 = coupangData3.substring(start3+1, end3-1)  
+  const list3 = item3.split("},")
+  const lists3 = list3.map((a)=>{return a.concat("}")})
+  const lists3End = lists3.slice(0, 10)
+  //console.log(lists3End) */
+
+  /* const start4 = coupangData4.indexOf("[")
+  const end4 = coupangData4.indexOf("]", start4)
+  const item4 = coupangData4.substring(start4+1, end4-1)  
+  const list4 = item4.split("},")
+  const lists4 = list4.map((a)=>{return a.concat("}")})
+  const lists4End = lists4.slice(0, 10)
+  //console.log(lists4End) */
+
+  const listsFinal = [...lists1End, ...lists2End, /* ...lists3End, */ /* ...lists4End */]
+  //console.log(listsFinal[0])
+  
+  const finals = listsFinal.map((a)=>{return JSON.parse(a)})
+  //console.log(final)
+
+  const shuffle = finals
+    .map((value) => ({ value, sort: Math.random() }))
+    .sort((a, b) => a.sort - b.sort)
+    .map(({ value }) => value)
+
+  const [final, setFinal] = useState(finals)
+
+  useEffect(()=>{
+    setFinal(shuffle)
+  }, [])
+
   useEffect(()=>{
     setWordArray1(items.elements[0].elements[0].elements.slice(4,24));
   }, [])
@@ -114,11 +163,11 @@ export default function Home({items, data, coupangData, youtube}) {
         tab1
         ?<Keyword2 time={time} word2={word2} traffic2={traffic2} />
         : tab2 ? <Keyword1 time={time} word1={word1} traffic1={traffic1} />
-               : tab3 ? <Keyword3 coupangData={coupangData} />
+               : tab3 ? <Keyword3 final={final} />
                       : <Keyword4 youtubeArr={youtubeArr} />
       }
       <News imgUrl={imgUrl} newsTitle={newsTitle} newsUrl={newsUrl} />
-      <Coupang10 coupangData={coupangData} imgUrl={imgUrl} newsTitle={newsTitle} newsUrl={newsUrl} />
+      <Coupang10 final={final} imgUrl={imgUrl} newsTitle={newsTitle} newsUrl={newsUrl} />
       <Youtube youtubeArr={youtubeArr} />      
       {/* <OpenModal show={show} handleClose={handleClose} handleShow={handleShow} /> */}
       <Script type="text/javascript" src="https://openmain.pstatic.net/js/openmain.js" />
@@ -180,18 +229,24 @@ export default function Home({items, data, coupangData, youtube}) {
 } */
 
 export async function getServerSideProps() {  
-  const [itemsRes, dataRes, coupangRes, youtubeRes] = await Promise.all([
+  const [itemsRes, dataRes, coupangRes1, coupangRes2, /* coupangRes3, */ /* coupangRes4, */ youtubeRes] = await Promise.all([
     axios('https://trends.google.co.kr/trends/trendingsearches/daily/rss?geo=KR'), 
     axios('https://search.zum.com/issue.zum'),
     axios('https://ads-partners.coupang.com/widgets.html?id=546675&template=carousel&trackingCode=AF6264577&subId=&width=680&height=70'),
+    axios('https://ads-partners.coupang.com/widgets.html?id=548595&template=carousel&trackingCode=AF6264577&subId=&width=680&height=70'),
+    //axios('https://ads-partners.coupang.com/widgets.html?id=548626&template=carousel&trackingCode=AF6264577&subId=&width=680&height=70'),
+    //axios('https://ads-partners.coupang.com/widgets.html?id=548627&template=carousel&trackingCode=AF6264577&subId=&width=680&height=70'),
     axios(`https://youtube.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&maxResults=20&regionCode=KR&key=${process.env.API_KEY}`),
   ])
-  const [items, data, coupangData, youtube] = await Promise.all([  
+  const [items, data, coupangData1, coupangData2, /* coupangData3, */ /* coupangData4, */ youtube] = await Promise.all([  
     JSON.parse(require("xml-js").xml2json(itemsRes.data)),
     dataRes.data,
-    coupangRes.data,
+    coupangRes1.data,
+    coupangRes2.data,
+    //coupangRes3.data,
+    //coupangRes4.data,
     youtubeRes.data,
   ])
 
-  return { props: { items, data, coupangData, youtube } };
+  return { props: { items, data, coupangData1, coupangData2, /* coupangData3, */ /* coupangData4, */ youtube } };
 }

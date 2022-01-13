@@ -1,21 +1,6 @@
 import styles from './coupang10.module.css'
 
-const Coupang10 = ({coupangData}) => {
-  //console.log(coupangData)
-  const start = coupangData.indexOf("[")
-  //console.log(start)
-  const end = coupangData.indexOf("]", start)
-  //console.log(end)
-  const item = coupangData.substring(start+1, end-1)
-  //console.log(item)
-  
-  const list = item.split("},")
-  const lists = list.map((a)=>{return a.concat("}")})
-  //console.log(lists[0])
-  
-  const final = lists.map((a)=>{return JSON.parse(a)})
-  //console.log(final)
-
+const Coupang10 = ({final}) => {  
   return (  
     <div className={styles.container}>
       <div className={styles.title}>인기쇼핑 TOP10</div>

@@ -2,33 +2,7 @@ import styles from './keyword3.module.css'
 import '@fortawesome/fontawesome-free/js/all.js'
 import BannerMobile5 from './banner/bannermobile5'
 
-const Keyword3 = ({coupangData}) => {
-  //console.log(coupangData)
-  const start = coupangData.indexOf("[")
-  //console.log(start)
-  const end = coupangData.indexOf("]", start)
-  //console.log(end)
-  const item = coupangData.substring(start+1, end-1)
-  //console.log(item)
-  
-  const list = item.split("},")
-  const lists = list.map((a)=>{return a.concat("}")})
-  //console.log(lists[0])
-  
-  const final = lists.map((a)=>{return JSON.parse(a)})
-  
-  /* const baseUrlStart = coupangData.indexOf("thumbnailBaseUrl")
-  const baseUrlEnd = coupangData.indexOf(",", baseUrlStart)
-  console.log(baseUrlStart)
-  console.log(baseUrlEnd)
-  const baseUrl = coupangData.substring(baseUrlStart+18, baseUrlEnd)
-  console.log(baseUrl)
-  const baseUrlFinal = JSON.parse(baseUrl)
-  console.log(baseUrlFinal)
-
-  const thumbnail = final[0].imagePath
-  console.log(thumbnail) */
-  
+const Keyword3 = ({final}) => {   
   return (  
     <div className={styles.container}>
       <div className={styles.order}>
