@@ -1,21 +1,21 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import axios from 'axios';
+import Title from '../components/title'
+import Search from '../components/search';
 import Tabs from '../components/tabs';
 import Keyword1 from '../components/keyword1';
 import Keyword2 from '../components/keyword2';
 import Keyword3 from '../components/keyword3';
 import Keyword4 from '../components/keyword4';
-import Youtube from '../components/youtube';
-import Footer from '../components/footer'
 import News from '../components/news';
-import Title from '../components/title'
-//import BannerPc from '../components/banner/bannerpc'
-import { useEffect, useState } from 'react';
-import Search from '../components/search';
-import Script from 'next/script';
 import Coupang10 from '../components/coupang10';
-//import OpenModal from '../components/openmodal';
+import Youtube from '../components/youtube';
+import OpenMain from '../components/openmain';
+import Footer from '../components/footer'
+import Script from 'next/script';
+import { useEffect, useState } from 'react';
+//import BannerPc from '../components/banner/bannerpc'
 
 export default function Home({items, data, coupangData1, coupangData2, /* coupangData3, */ /* coupangData4, */ youtube}) {
   const [wordArray1, setWordArray1] = useState([])
@@ -169,13 +169,8 @@ export default function Home({items, data, coupangData1, coupangData2, /* coupan
       <News imgUrl={imgUrl} newsTitle={newsTitle} newsUrl={newsUrl} />
       <Coupang10 final={final} imgUrl={imgUrl} newsTitle={newsTitle} newsUrl={newsUrl} />
       <Youtube youtubeArr={youtubeArr} />      
-      {/* <OpenModal show={show} handleClose={handleClose} handleShow={handleShow} /> */}
       <Script type="text/javascript" src="https://openmain.pstatic.net/js/openmain.js" />
-      <div className={styles.open_main}>
-        <div className={styles.space}></div>
-        <div className="nv-openmain" data-title="랭크보드" data-url="https://www.rankboard.co.kr/" data-type="W2"></div>
-        <div className={styles.space}></div>
-      </div>
+      <OpenMain />      
       <Footer />
     </div>
   )
@@ -211,21 +206,6 @@ export default function Home({items, data, coupangData1, coupangData2, /* coupan
   ])
 
   return { props: { items, data, youtube }, revalidate: 1, }
-} */
-
-/* export async function getServerSideProps() {  
-  const [itemsRes, dataRes, youtubeRes] = await Promise.all([
-    axios('https://trends.google.co.kr/trends/trendingsearches/daily/rss?geo=KR'), 
-    axios('https://search.zum.com/issue.zum'),
-    axios(`https://youtube.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&maxResults=10&regionCode=KR&key=${process.env.API_KEY}`)
-  ])  
-  const [items, data, youtube] = await Promise.all([  
-    JSON.parse(require("xml-js").xml2json(itemsRes.data)),
-    dataRes.data,
-    youtubeRes.data
-  ])
-
-  return { props: { items, data, youtube } };
 } */
 
 export async function getServerSideProps() {  

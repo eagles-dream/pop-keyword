@@ -9,21 +9,8 @@
   background-color: var(--main-color);
 }
 
-.open_main {
-  display: none;
-}
-
 @media screen and (max-width: 1200px) {
   .container {
     width: 100%;
-  }
-
-  .open_main {
-    display: flex;
-    justify-content: space-between;
-    width: 100vw;
-    position: fixed;
-    bottom: 0;
-    z-index: 20;
   }
 }
