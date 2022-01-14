@@ -78,7 +78,7 @@ export default function Home({items, data, coupangData1, coupangData2, /* coupan
   const item1 = coupangData1.substring(start1+1, end1-1)  
   const list1 = item1.split("},")
   const lists1 = list1.map((a)=>{return a.concat("}")})
-  const lists1End = lists1.slice(0, 27)
+  const lists1End = lists1.slice(0, -1)
   //console.log(lists1End)
 
   const start2 = coupangData2.indexOf("[")
@@ -86,7 +86,7 @@ export default function Home({items, data, coupangData1, coupangData2, /* coupan
   const item2 = coupangData2.substring(start2+1, end2-1)  
   const list2 = item2.split("},")
   const lists2 = list2.map((a)=>{return a.concat("}")})
-  const lists2End = lists2.slice(0, 10)
+  const lists2End = lists2.slice(0, -1)
   //console.log(lists2End)
 
   /* const start3 = coupangData3.indexOf("[")
@@ -105,8 +105,8 @@ export default function Home({items, data, coupangData1, coupangData2, /* coupan
   const lists4End = lists4.slice(0, 10)
   //console.log(lists4End) */
 
-  const listsFinal = [...lists1End, /* ...lists2End, */ /* ...lists3End, */ /* ...lists4End */]
-  //console.log(listsFinal[0])
+  const listsFinal = [...lists1End, ...lists2End, /* ...lists3End, */ /* ...lists4End */]
+  //console.log(listsFinal)
   
   const finals = listsFinal.map((a)=>{return JSON.parse(a)})
   //console.log(final)
