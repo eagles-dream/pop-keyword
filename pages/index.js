@@ -105,7 +105,7 @@ export default function Home({items, data, coupangData1, coupangData2, /* coupan
   const lists4End = lists4.slice(0, 10)
   //console.log(lists4End) */
 
-  const listsFinal = [...lists1End, ...lists2End, /* ...lists3End, */ /* ...lists4End */]
+  const listsFinal = [...lists1End, /* ...lists2End, */ /* ...lists3End, */ /* ...lists4End */]
   //console.log(listsFinal[0])
   
   const finals = listsFinal.map((a)=>{return JSON.parse(a)})
