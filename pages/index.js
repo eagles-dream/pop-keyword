@@ -52,13 +52,16 @@ export default function Home({items, data, coupangData1, coupangData2, /* coupan
   const word2 = wordArray2.map((a)=>{return a.keyword})
   //console.log(word2)
   const traffic1 = wordArray1.map((a)=>{return a.elements[1].elements[0].text})
+  //console.log(traffic1)
   const traffic2 = wordArray2.map((a)=>{return a.directionClass})
   //console.log(traffic2)
-  const imgUrl = wordArray1.map((a)=>{return a.elements[5].elements[0].text})
+  const imgUrl = wordArray1.map((a)=>{return a.elements[5].elements[0].text})/* .slice(0,19) */
   //console.log(imgUrl)
+  
+  const newsTitleTemp = wordArray1.map((a)=>{return a.elements[7]}).slice(0,10)
+  const newsTitle = newsTitleTemp.map((a)=>{return a.elements[0].elements[0].text})
   //const newsTitle = wordArray1.map((a)=>{return a.elements[7].elements[0].elements[0].text})
-  const newsTitle = wordArray1.map((a)=>{return a.elements[7]})
-  //console.log(newsTitle)
+  console.log(newsTitle)
   /* const newsTitle1 = newsTitle.map((a)=>{
     if(a===undefined) {
       return {elements:[{elements:[{text: "No Data"}]}]}
@@ -69,9 +72,11 @@ export default function Home({items, data, coupangData1, coupangData2, /* coupan
   //console.log(newsTitle1)
   //const newsTitle2 = newsTitle1.map((a)=>{return a.elements[0].elements[0].text})
   //console.log(newsTitle2)
+  
+  const newsUrlTemp = wordArray1.map((a)=>{return a.elements[7]}).slice(0,10)
+  const newsUrl = newsUrlTemp.map((a)=>{return a.elements[2].elements[0].text})
   //const newsUrl = wordArray1.map((a)=>{return a.elements[7].elements[2].elements[0].text})
-  const newsUrl = wordArray1.map((a)=>{return a.elements[7]})
-  //console.log(newsUrl)
+  console.log(newsUrl)
 
   const start1 = coupangData1.indexOf("[")
   const end1 = coupangData1.indexOf("]", start1)
@@ -166,7 +171,7 @@ export default function Home({items, data, coupangData1, coupangData2, /* coupan
                : tab3 ? <Keyword3 final={final} />
                       : <Keyword4 youtubeArr={youtubeArr} />
       }
-      {/* <News imgUrl={imgUrl} newsTitle={newsTitle} newsUrl={newsUrl} /> */}
+      <News imgUrl={imgUrl} newsTitle={newsTitle} newsUrl={newsUrl} />
       <Coupang10 final={final} imgUrl={imgUrl} newsTitle={newsTitle} newsUrl={newsUrl} />
       <Youtube youtubeArr={youtubeArr} />      
       <Script type="text/javascript" src="https://openmain.pstatic.net/js/openmain.js" />
