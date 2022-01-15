@@ -29,8 +29,10 @@ export default function Home({items, data, coupangData1, coupangData2, /* coupan
   const [tab3, setTab3] = useState(false)
   const [tab4, setTab4] = useState(false)
   //console.log(wordArray1)
+  //console.log(wordArray2)
   //console.log(youtube)
   //console.log(youtubeArr)
+  //console.log(time)
 
   const Tab1 = () => { setTab1(true), setTab2(false), setTab3(false), setTab4(false) }
   const Tab2 = () => { setTab1(false), setTab2(true), setTab3(false), setTab4(false) }
@@ -61,7 +63,7 @@ export default function Home({items, data, coupangData1, coupangData2, /* coupan
   const newsTitleTemp = wordArray1.map((a)=>{return a.elements[7]}).slice(0,10)
   const newsTitle = newsTitleTemp.map((a)=>{return a.elements[0].elements[0].text})
   //const newsTitle = wordArray1.map((a)=>{return a.elements[7].elements[0].elements[0].text})
-  console.log(newsTitle)
+  //console.log(newsTitle)
   /* const newsTitle1 = newsTitle.map((a)=>{
     if(a===undefined) {
       return {elements:[{elements:[{text: "No Data"}]}]}
@@ -76,7 +78,7 @@ export default function Home({items, data, coupangData1, coupangData2, /* coupan
   const newsUrlTemp = wordArray1.map((a)=>{return a.elements[7]}).slice(0,10)
   const newsUrl = newsUrlTemp.map((a)=>{return a.elements[2].elements[0].text})
   //const newsUrl = wordArray1.map((a)=>{return a.elements[7].elements[2].elements[0].text})
-  console.log(newsUrl)
+  //console.log(newsUrl)
 
   const start1 = coupangData1.indexOf("[")
   const end1 = coupangData1.indexOf("]", start1)
@@ -132,7 +134,7 @@ export default function Home({items, data, coupangData1, coupangData2, /* coupan
   }, [])
 
   useEffect(()=>{
-    setWordArray2(data.issue.slice(0,20));
+    setWordArray2(data.issue.slice(0,10));
   }, [])
 
   useEffect(()=>{
@@ -198,22 +200,7 @@ export default function Home({items, data, coupangData1, coupangData2, /* coupan
   return { props: { data } }
 } */
 
-/* export async function getStaticProps() {
-  const [itemsRes, dataRes, youtubeRes] = await Promise.all([
-    axios('https://trends.google.co.kr/trends/trendingsearches/daily/rss?geo=KR'), 
-    axios('https://search.zum.com/issue.zum'),
-    axios(`https://youtube.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&maxResults=10&regionCode=KR&key=${process.env.API_KEY}`)
-  ])  
-  const [items, data, youtube] = await Promise.all([  
-    JSON.parse(require("xml-js").xml2json(itemsRes.data)),
-    dataRes.data,
-    youtubeRes.data
-  ])
-
-  return { props: { items, data, youtube }, revalidate: 1, }
-} */
-
-export async function getServerSideProps() {  
+export async function getStaticProps() {
   const [itemsRes, dataRes, coupangRes1, coupangRes2, /* coupangRes3, */ /* coupangRes4, */ youtubeRes] = await Promise.all([
     axios('https://trends.google.co.kr/trends/trendingsearches/daily/rss?geo=KR'), 
     axios('https://search.zum.com/issue.zum'),
@@ -233,5 +220,28 @@ export async function getServerSideProps() {
     youtubeRes.data,
   ])
 
-  return { props: { items, data, coupangData1, coupangData2, /* coupangData3, */ /* coupangData4, */ youtube } };
+  return { props: { items, data, coupangData1, coupangData2, /* coupangData3, */ /* coupangData4, */ youtube }, revalidate: 1, };
 }
+
+/* export async function getServerSideProps() {  
+  const [itemsRes, dataRes, coupangRes1, coupangRes2, youtubeRes] = await Promise.all([
+    axios('https://trends.google.co.kr/trends/trendingsearches/daily/rss?geo=KR'), 
+    axios('https://search.zum.com/issue.zum'),
+    axios('https://ads-partners.coupang.com/widgets.html?id=546675&template=carousel&trackingCode=AF6264577&subId=&width=680&height=70'),
+    axios('https://ads-partners.coupang.com/widgets.html?id=548595&template=carousel&trackingCode=AF6264577&subId=&width=680&height=70'),
+    //axios('https://ads-partners.coupang.com/widgets.html?id=548626&template=carousel&trackingCode=AF6264577&subId=&width=680&height=70'),
+    //axios('https://ads-partners.coupang.com/widgets.html?id=548627&template=carousel&trackingCode=AF6264577&subId=&width=680&height=70'),
+    axios(`https://youtube.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&maxResults=20&regionCode=KR&key=${process.env.API_KEY}`),
+  ])
+  const [items, data, coupangData1, coupangData2, youtube] = await Promise.all([  
+    JSON.parse(require("xml-js").xml2json(itemsRes.data)),
+    dataRes.data,
+    coupangRes1.data,
+    coupangRes2.data,
+    //coupangRes3.data,
+    //coupangRes4.data,
+    youtubeRes.data,
+  ])
+
+  return { props: { items, data, coupangData1, coupangData2, youtube } };
+} */
