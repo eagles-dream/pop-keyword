@@ -56,8 +56,8 @@ export default function Home({items, data, coupangData1, coupangData2, /* coupan
   //console.log(traffic2)
   const imgUrl = wordArray1.map((a)=>{return a.elements[5].elements[0].text})
   //console.log(imgUrl)
-  const newsTitle = wordArray1.map((a)=>{return a.elements[7].elements[0].elements[0].text})
-  //const newsTitle = wordArray1.map((a)=>{return a.elements[7]})
+  //const newsTitle = wordArray1.map((a)=>{return a.elements[7].elements[0].elements[0].text})
+  const newsTitle = wordArray1.map((a)=>{return a.elements[7]})
   //console.log(newsTitle)
   /* const newsTitle1 = newsTitle.map((a)=>{
     if(a===undefined) {
@@ -69,8 +69,8 @@ export default function Home({items, data, coupangData1, coupangData2, /* coupan
   //console.log(newsTitle1)
   //const newsTitle2 = newsTitle1.map((a)=>{return a.elements[0].elements[0].text})
   //console.log(newsTitle2)
-  const newsUrl = wordArray1.map((a)=>{return a.elements[7].elements[2].elements[0].text})
-  //const newsUrl = wordArray1.map((a)=>{return a.elements[7]})
+  //const newsUrl = wordArray1.map((a)=>{return a.elements[7].elements[2].elements[0].text})
+  const newsUrl = wordArray1.map((a)=>{return a.elements[7]})
   //console.log(newsUrl)
 
   const start1 = coupangData1.indexOf("[")
@@ -166,7 +166,7 @@ export default function Home({items, data, coupangData1, coupangData2, /* coupan
                : tab3 ? <Keyword3 final={final} />
                       : <Keyword4 youtubeArr={youtubeArr} />
       }
-      <News imgUrl={imgUrl} newsTitle={newsTitle} newsUrl={newsUrl} />
+      {/* <News imgUrl={imgUrl} newsTitle={newsTitle} newsUrl={newsUrl} /> */}
       <Coupang10 final={final} imgUrl={imgUrl} newsTitle={newsTitle} newsUrl={newsUrl} />
       <Youtube youtubeArr={youtubeArr} />      
       <Script type="text/javascript" src="https://openmain.pstatic.net/js/openmain.js" />
