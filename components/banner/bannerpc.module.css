@@ -1,9 +1,10 @@
 .left {
-  padding-top: 5px;
+  display: none;
+  /* padding-top: 5px;
   padding-right: 5px;
   position: absolute;
   top: 50px;
-  right: 80%;
+  right: 80%; */
 }
 
 .right {
