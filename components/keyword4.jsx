@@ -1,6 +1,6 @@
 import styles from './keyword4.module.css'
 import '@fortawesome/fontawesome-free/js/all.js'
-import BannerMobile5 from './banner/bannermobile5'
+import BannerMobile2 from './banner/bannermobile2'
 
 const Keyword4 = ({youtubeArr}) => {
   
@@ -44,7 +44,7 @@ const Keyword4 = ({youtubeArr}) => {
         }
         </div>
       </div>
-      {/* <BannerMobile5 /> */}
+      <BannerMobile2 />
     </div>
   );
 }

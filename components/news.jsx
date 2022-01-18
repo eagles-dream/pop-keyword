@@ -1,6 +1,6 @@
 import styles from './news.module.css'
 import Image from "next/image";
-import BannerMobile2 from '../components/banner/bannermobile2'
+import BannerMobile3 from '../components/banner/bannermobile3'
 
 const News = ({imgUrl, newsTitle, newsUrl}) => {
   //console.log(imgUrl)
@@ -27,7 +27,7 @@ const News = ({imgUrl, newsTitle, newsUrl}) => {
           )})
         }
         </div>
-        {/* <BannerMobile2 /> */}
+        <BannerMobile3 />
         <div className={styles.right}>
         {
           imgUrl.slice(5, 10).map((item, i)=>{ 

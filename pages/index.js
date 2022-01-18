@@ -15,7 +15,7 @@ import OpenMain from '../components/openmain';
 import Footer from '../components/footer'
 import Script from 'next/script';
 import { useEffect, useState } from 'react';
-//import BannerPc from '../components/banner/bannerpc'
+import BannerPc from '../components/banner/bannerpc'
 
 export default function Home({items, data, coupangData1, coupangData2, /* coupangData3, */ /* coupangData4, */ youtube}) {
   const [wordArray1, setWordArray1] = useState([])
@@ -163,7 +163,7 @@ export default function Home({items, data, coupangData1, coupangData2, /* coupan
         <meta property="og:url" content="https://www.rankboard.co.kr" />
       </Head>
       <Search tab1={tab1} tab2={tab2} tab3={tab3} />
-      {/* <BannerPc /> */}      
+      <BannerPc />      
       <Title time={time} tab1={tab1} tab2={tab2} tab3={tab3} />
       <Tabs tab1={tab1} tab2={tab2} tab3={tab3} tab4={tab4} Tab1={Tab1} Tab2={Tab2}  Tab3={Tab3} Tab4={Tab4} />
       {

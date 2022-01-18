@@ -43,7 +43,7 @@ const Keyword3 = ({final}) => {
         }
         </div>
       </div>
-      {/* <BannerMobile5 /> */}
+      <BannerMobile5 />
     </div>
   );
 }
