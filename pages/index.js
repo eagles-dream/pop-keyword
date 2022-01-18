@@ -21,7 +21,7 @@ export default function Home({items, data, coupangData1, coupangData2, /* coupan
   const [wordArray1, setWordArray1] = useState([])
   const [wordArray2, setWordArray2] = useState([])
   const [youtubeArr, setYoutubeArr] = useState([])
-  const [time, setTime] = useState()
+  //const [time, setTime] = useState()
 
   //여기서 부터 수정작업 
   const [tab1, setTab1] = useState(true)
@@ -141,9 +141,9 @@ export default function Home({items, data, coupangData1, coupangData2, /* coupan
     setYoutubeArr(youtube.items);
   }, [])
 
-  useEffect(()=>{
+  /* useEffect(()=>{
     setTime(data.issueTime);
-  }, [])
+  }, []) */
 
   return (
     <div className={styles.container}>
@@ -164,12 +164,12 @@ export default function Home({items, data, coupangData1, coupangData2, /* coupan
       </Head>
       <Search tab1={tab1} tab2={tab2} tab3={tab3} />
       <BannerPc />      
-      <Title time={time} tab1={tab1} tab2={tab2} tab3={tab3} />
+      <Title /* time={time} */ tab1={tab1} tab2={tab2} tab3={tab3} />
       <Tabs tab1={tab1} tab2={tab2} tab3={tab3} tab4={tab4} Tab1={Tab1} Tab2={Tab2}  Tab3={Tab3} Tab4={Tab4} />
       {
         tab1
-        ?<Keyword2 time={time} word2={word2} traffic2={traffic2} />
-        : tab2 ? <Keyword1 time={time} word1={word1} traffic1={traffic1} />
+        ?<Keyword2 /* time={time} */ word2={word2} traffic2={traffic2} />
+        : tab2 ? <Keyword1 /* time={time} */ word1={word1} traffic1={traffic1} />
                : tab3 ? <Keyword3 final={final} />
                       : <Keyword4 youtubeArr={youtubeArr} />
       }
