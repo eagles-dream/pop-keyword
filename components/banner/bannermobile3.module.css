@@ -7,7 +7,5 @@
     display: flex;
     justify-content: space-between;
     width: 100%;
-    padding-top: 0.5rem;
-    padding-bottom: 0;
   }
 }

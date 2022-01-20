@@ -16,6 +16,7 @@ import Footer from '../components/footer'
 import Script from 'next/script';
 import { useEffect, useState } from 'react';
 import BannerPc from '../components/banner/bannerpc'
+import BannerMobile3 from '../components/banner/bannermobile3'
 
 export default function Home({items, data, coupangData1, coupangData2, /* coupangData3, */ /* coupangData4, */ youtube}) {
   const [wordArray1, setWordArray1] = useState([])
@@ -174,6 +175,7 @@ export default function Home({items, data, coupangData1, coupangData2, /* coupan
                       : <Keyword4 youtubeArr={youtubeArr} />
       }
       <News imgUrl={imgUrl} newsTitle={newsTitle} newsUrl={newsUrl} />
+      <BannerMobile3 />
       <Coupang10 final={final} imgUrl={imgUrl} newsTitle={newsTitle} newsUrl={newsUrl} />
       <Youtube youtubeArr={youtubeArr} />      
       <Script type="text/javascript" src="https://openmain.pstatic.net/js/openmain.js" />
