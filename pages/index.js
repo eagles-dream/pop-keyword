@@ -177,7 +177,7 @@ export default function Home({items, data, coupangData1, coupangData2, /* coupan
       }
       {/* <News imgUrl={imgUrl} newsTitle={newsTitle} newsUrl={newsUrl} /> */}
       {/* <BannerMobile3 /> */}
-      {/* <Coupang10 final={final} imgUrl={imgUrl} newsTitle={newsTitle} newsUrl={newsUrl} /> */}
+      <Coupang10 final={final} />
       <Youtube youtubeArr={youtubeArr} />      
       <Script type="text/javascript" src="https://openmain.pstatic.net/js/openmain.js" />
       <OpenMain />      
