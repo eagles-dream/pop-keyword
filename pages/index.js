@@ -16,7 +16,7 @@ import Footer from '../components/footer'
 import Script from 'next/script';
 import { useEffect, useState } from 'react';
 import BannerPc from '../components/banner/bannerpc'
-import BannerMobile3 from '../components/banner/bannermobile3'
+//import BannerMobile3 from '../components/banner/bannermobile3'
 
 export default function Home({items, data, coupangData1, coupangData2, /* coupangData3, */ /* coupangData4, */ youtube}) {
   const [wordArray1, setWordArray1] = useState([])
@@ -157,7 +157,7 @@ export default function Home({items, data, coupangData1, coupangData2, /* coupan
           content="네이버, 구글, 유튜브, 쿠팡과 연결해 실시간 검색어 순위 및 인기뉴스, 인기유튜브, 인기상품 등 실시간 트렌드를 확인할 수 있는 서비스입니다." />
         <meta 
           name="keywords" 
-          content="실시간검색어, 실검, 네이버검색어, 구글검색어, 구글트랜드, 인기유튜브, 인기상품, 인기검색어, 키워드트렌드, 실시간트렌드, 마케팅, 키워드, 검색어순위, 인기뉴스" />
+          content="실시간검색어, 실검, 네이버검색어, 네이버실검, 구글검색어, 구글트랜드, 인기유튜브, 인기상품, 인기검색어, 키워드트렌드, 실시간트렌드, 마케팅, 키워드, 검색어순위, 인기뉴스" />
         <meta name="naver-site-verification" content="b62a7b3bb84d2b3a6b5712724d2f693f37bd4515" />
         <meta property="og:type" content="website" /> 
         <meta property="og:title" content="랭크보드" />
