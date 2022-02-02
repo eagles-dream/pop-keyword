@@ -58,10 +58,10 @@ export default function Home({items, data, coupangData1, coupangData2, /* coupan
   //console.log(traffic1)
   const traffic2 = wordArray2.map((a)=>{return a.directionClass})
   //console.log(traffic2)
-  const imgUrl = wordArray1.map((a)=>{return a.elements[5].elements[0].text}).slice(2,12)
+  const imgUrl = wordArray1.map((a)=>{return a.elements[5].elements[0].text}).slice(6,16)
   console.log(imgUrl)
   
-  const newsTitleTemp = wordArray1.map((a)=>{return a.elements[7]}).slice(2,12)
+  const newsTitleTemp = wordArray1.map((a)=>{return a.elements[7]}).slice(6,16)
   const newsTitle = newsTitleTemp.map((a)=>{return a.elements[0].elements[0].text})
   //const newsTitle = wordArray1.map((a)=>{return a.elements[7].elements[0].elements[0].text})
   //console.log(wordArray1)
@@ -78,7 +78,7 @@ export default function Home({items, data, coupangData1, coupangData2, /* coupan
   //const newsTitle2 = newsTitle1.map((a)=>{return a.elements[0].elements[0].text})
   //console.log(newsTitle2)
   
-  const newsUrlTemp = wordArray1.map((a)=>{return a.elements[7]}).slice(2,12)
+  const newsUrlTemp = wordArray1.map((a)=>{return a.elements[7]}).slice(6,16)
   const newsUrl = newsUrlTemp.map((a)=>{return a.elements[2].elements[0].text})
   //const newsUrl = wordArray1.map((a)=>{return a.elements[7].elements[2].elements[0].text})
   console.log(newsUrl)
