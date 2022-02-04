@@ -8,7 +8,7 @@ import Keyword1 from '../components/keyword1';
 import Keyword2 from '../components/keyword2';
 import Keyword3 from '../components/keyword3';
 import Keyword4 from '../components/keyword4';
-import News from '../components/news';
+//import News from '../components/news';
 import Coupang10 from '../components/coupang10';
 import Youtube from '../components/youtube';
 import OpenMain from '../components/openmain';
@@ -58,15 +58,15 @@ export default function Home({items, data, coupangData1, coupangData2, /* coupan
   //console.log(traffic1)
   const traffic2 = wordArray2.map((a)=>{return a.directionClass})
   //console.log(traffic2)
-  const imgUrl = wordArray1.map((a)=>{return a.elements[5].elements[0].text}).slice(6,16)
-  console.log(imgUrl)
+  //const imgUrl = wordArray1.map((a)=>{return a.elements[5].elements[0].text}).slice(6,16)
+  //console.log(imgUrl)
   
-  const newsTitleTemp = wordArray1.map((a)=>{return a.elements[7]}).slice(6,16)
-  const newsTitle = newsTitleTemp.map((a)=>{return a.elements[0].elements[0].text})
+  //const newsTitleTemp = wordArray1.map((a)=>{return a.elements[7]}).slice(6,16)
+  //const newsTitle = newsTitleTemp.map((a)=>{return a.elements[0].elements[0].text})
   //const newsTitle = wordArray1.map((a)=>{return a.elements[7].elements[0].elements[0].text})
   //console.log(wordArray1)
-  console.log(newsTitleTemp)
-  console.log(newsTitle)
+  //console.log(newsTitleTemp)
+  //console.log(newsTitle)
   /* const newsTitle1 = newsTitle.map((a)=>{
     if(a===undefined) {
       return {elements:[{elements:[{text: "No Data"}]}]}
@@ -78,10 +78,10 @@ export default function Home({items, data, coupangData1, coupangData2, /* coupan
   //const newsTitle2 = newsTitle1.map((a)=>{return a.elements[0].elements[0].text})
   //console.log(newsTitle2)
   
-  const newsUrlTemp = wordArray1.map((a)=>{return a.elements[7]}).slice(6,16)
-  const newsUrl = newsUrlTemp.map((a)=>{return a.elements[2].elements[0].text})
+  //const newsUrlTemp = wordArray1.map((a)=>{return a.elements[7]}).slice(6,16)
+  //const newsUrl = newsUrlTemp.map((a)=>{return a.elements[2].elements[0].text})
   //const newsUrl = wordArray1.map((a)=>{return a.elements[7].elements[2].elements[0].text})
-  console.log(newsUrl)
+  //console.log(newsUrl)
 
   const start1 = coupangData1.indexOf("[")
   const end1 = coupangData1.indexOf("]", start1)
@@ -157,7 +157,7 @@ export default function Home({items, data, coupangData1, coupangData2, /* coupan
           content="네이버, 구글, 유튜브, 쿠팡과 연결해 실시간 검색어 순위 및 인기뉴스, 인기유튜브, 인기상품 등 실시간 트렌드를 확인할 수 있는 서비스입니다." />
         <meta 
           name="keywords" 
-          content="실시간검색어, 실검, 네이버검색어, 네이버실검, 구글검색어, 구글트랜드, 인기유튜브, 인기상품, 인기검색어, 키워드트렌드, 실시간트렌드, 마케팅, 키워드, 검색어순위, 인기뉴스" />
+          content="실시간검색어, 실검, 네이버검색어, 네이버실검, 실검폐지, 네이버실검폐지, 구글검색어, 구글트랜드, 인기유튜브, 인기상품, 인기검색어, 키워드트렌드, 실시간트렌드, 마케팅, 키워드, 검색어순위, 인기뉴스" />
         <meta name="naver-site-verification" content="b62a7b3bb84d2b3a6b5712724d2f693f37bd4515" />
         <meta property="og:type" content="website" /> 
         <meta property="og:title" content="랭크보드" />
@@ -176,7 +176,7 @@ export default function Home({items, data, coupangData1, coupangData2, /* coupan
                : tab3 ? <Keyword3 final={final} />
                       : <Keyword4 youtubeArr={youtubeArr} />
       }
-      <News imgUrl={imgUrl} newsTitle={newsTitle} newsUrl={newsUrl} />
+      {/* <News imgUrl={imgUrl} newsTitle={newsTitle} newsUrl={newsUrl} /> */}
       {/* <BannerMobile3 /> */}
       <Coupang10 final={final} />
       <Youtube youtubeArr={youtubeArr} />      
