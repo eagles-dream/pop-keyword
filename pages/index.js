@@ -30,7 +30,7 @@ export default function Home({items, data, coupangData1, coupangData2, /* coupan
   const [tab3, setTab3] = useState(false)
   const [tab4, setTab4] = useState(false)
   //console.log(wordArray1)
-  //console.log(wordArray2)
+  console.log(wordArray2)
   //console.log(youtube)
   //console.log(youtubeArr)
   //console.log(time)
@@ -53,7 +53,7 @@ export default function Home({items, data, coupangData1, coupangData2, /* coupan
   const word1 = wordArray1.map((a)=>{return a.elements[0].elements[0].text})
   //console.log(word1)
   const word2 = wordArray2.map((a)=>{return a.keyword})
-  //console.log(word2)
+  console.log(word2)
   const traffic1 = wordArray1.map((a)=>{return a.elements[1].elements[0].text})
   //console.log(traffic1)
   const traffic2 = wordArray2.map((a)=>{return a.directionClass})
@@ -136,9 +136,9 @@ export default function Home({items, data, coupangData1, coupangData2, /* coupan
     setWordArray1(items.elements[0].elements[0].elements.slice(4,24));
   }, [])
 
-  useEffect(()=>{
+  /* useEffect(()=>{
     setWordArray2(data.issue.slice(0,10));
-  }, [])
+  }, []) */
 
   useEffect(()=>{
     setYoutubeArr(youtube.items);
@@ -171,7 +171,8 @@ export default function Home({items, data, coupangData1, coupangData2, /* coupan
       <Tabs tab1={tab1} tab2={tab2} tab3={tab3} tab4={tab4} Tab1={Tab1} Tab2={Tab2}  Tab3={Tab3} Tab4={Tab4} />
       {
         tab1
-        ?<Keyword2 /* time={time} */ word2={word2} traffic2={traffic2} />
+        //?<Keyword2 /* time={time} */ word2={word2} traffic2={traffic2} />
+        ?<Keyword1 /* time={time} */ word1={word1} traffic1={traffic1} />
         : tab2 ? <Keyword1 /* time={time} */ word1={word1} traffic1={traffic1} />
                : tab3 ? <Keyword3 final={final} />
                       : <Keyword4 youtubeArr={youtubeArr} />
